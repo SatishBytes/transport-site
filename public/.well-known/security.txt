@@ -1,0 +1,5 @@
+# Replace this contact and canonical URL with the verified security contact and production domain before deployment.
+Contact: mailto:bachanroadcarriers7289@gmail.com
+Expires: 2027-10-26T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.example.com/.well-known/security.txt

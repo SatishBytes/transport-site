@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Goods transport truck on an Indian road</title>
+  <desc id="desc">Illustration of a navy blue freight truck carrying goods beneath a warm sunrise.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#fff7ed"/>
+    </linearGradient>
+    <linearGradient id="trailer" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#1e3a5f"/>
+      <stop offset="1" stop-color="#10243d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="34" fill="url(#sky)"/>
+  <circle cx="930" cy="155" r="77" fill="#fbbf24" opacity=".9"/>
+  <path d="M0 455c163-77 287-74 445-10 147 60 288 41 430-37 123-67 224-66 325-30v382H0z" fill="#d6e3dc"/>
+  <path d="M0 555c192-48 347-53 529-10 209 49 419 38 671-21v236H0z" fill="#c6d5cc"/>
+  <path d="M0 625h1200v135H0z" fill="#334155"/>
+  <path d="M0 682h1200" stroke="#fef3c7" stroke-dasharray="54 48" stroke-width="9" opacity=".9"/>
+  <g transform="translate(165 268)">
+    <rect x="30" y="60" width="602" height="258" rx="15" fill="url(#trailer)"/>
+    <path d="M80 97h500M80 143h500" stroke="#294d73" stroke-width="9" opacity=".85"/>
+    <rect x="632" y="170" width="211" height="148" rx="14" fill="#fbbf24"/>
+    <path d="M673 126h111l59 63H673z" fill="#e2e8f0"/>
+    <path d="M693 141h79l34 39H693z" fill="#93c5fd"/>
+    <rect x="790" y="209" width="43" height="23" rx="5" fill="#fff7ed"/>
+    <rect x="650" y="265" width="192" height="19" rx="8" fill="#e7a619"/>
+    <circle cx="207" cy="328" r="48" fill="#111827"/>
+    <circle cx="207" cy="328" r="22" fill="#cbd5e1"/>
+    <circle cx="700" cy="328" r="48" fill="#111827"/>
+    <circle cx="700" cy="328" r="22" fill="#cbd5e1"/>
+    <circle cx="810" cy="328" r="48" fill="#111827"/>
+    <circle cx="810" cy="328" r="22" fill="#cbd5e1"/>
+    <rect x="70" y="231" width="385" height="7" rx="3" fill="#fbbf24" opacity=".85"/>
+    <text x="95" y="203" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="2">GOODS IN MOTION</text>
+  </g>
+</svg>

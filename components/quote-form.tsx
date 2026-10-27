@@ -30,7 +30,7 @@ type QuoteValues = Record<QuoteField, string>;
 
 const fieldLimits: Record<QuoteField, number> = {
   name: 80,
-  phone: 15,
+  phone: 10,
   pickupCity: 100,
   pickupPinCode: 6,
   deliveryCity: 100,
@@ -133,8 +133,8 @@ function validateForm(values: QuoteValues): FieldErrors {
     }
   }
 
-  if (values.phone && !/^\d{7,15}$/.test(values.phone)) {
-    errors.phone = "Enter 7 to 15 digits only.";
+  if (values.phone && !/^\d{10,10}$/.test(values.phone)) {
+    errors.phone = "Enter a 10-digit phone number.";
   }
 
   if (values.pickupPinCode && !/^[1-9][0-9]{5}$/.test(values.pickupPinCode)) {

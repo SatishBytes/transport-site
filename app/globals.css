@@ -17,3 +17,141 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes faq-answer-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes message-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-ready:not(.reveal-visible) {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: none;
+}
+
+.reveal-ready:not(.reveal-visible) .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: none;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 520ms ease-out,
+    transform 520ms ease-out;
+}
+
+.reveal-visible .reveal-stagger > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 420ms ease-out,
+    transform 420ms ease-out;
+}
+
+.reveal-stagger > :nth-child(2) {
+  transition-delay: 50ms;
+}
+
+.reveal-stagger > :nth-child(3) {
+  transition-delay: 100ms;
+}
+
+.reveal-stagger > :nth-child(4) {
+  transition-delay: 150ms;
+}
+
+.reveal-stagger > :nth-child(5) {
+  transition-delay: 200ms;
+}
+
+.reveal-stagger > :nth-child(6) {
+  transition-delay: 250ms;
+}
+
+.reveal-stagger > :nth-child(7) {
+  transition-delay: 300ms;
+}
+
+.reveal-stagger > :nth-child(8) {
+  transition-delay: 350ms;
+}
+
+.motion-enabled .hero-badge {
+  animation: hero-enter 450ms ease-out 100ms both;
+}
+
+.motion-enabled .hero-support {
+  animation: hero-enter 500ms ease-out 120ms both;
+}
+
+.motion-enabled .hero-actions {
+  animation: hero-enter 500ms ease-out 220ms both;
+}
+
+.faq-answer {
+  transform-origin: top;
+}
+
+details[open] > .faq-answer {
+  animation: faq-answer-enter 240ms ease-out both;
+}
+
+details.is-closing > .faq-answer {
+  animation: faq-answer-enter 240ms ease-in reverse both;
+}
+
+.motion-message {
+  animation: message-enter 220ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  .reveal-ready:not(.reveal-visible),
+  .reveal-ready:not(.reveal-visible) .reveal-stagger > *,
+  .reveal-visible,
+  .reveal-visible .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

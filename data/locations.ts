@@ -20,7 +20,7 @@ export const locations: Location[] = [
     keyword: "transport services in Mumbai",
     title: "Goods Transport in Mumbai",
     description:
-      "Enquire about goods and part load transport services in Mumbai. Share pickup, delivery and shipment details to check availability and request a quote.",
+      "Ask about goods and part load transport in Mumbai. Share the pickup locality, destination, shipment details and loading notes so availability can be checked.",
     intro:
       "Planning a goods movement to or from Mumbai? Tell us where the consignment starts and ends, what it contains, and how it is packed. We can review the details and confirm whether a suitable transport arrangement is available.",
     planningNotes:
@@ -50,7 +50,7 @@ export const locations: Location[] = [
     keyword: "transport services in Thane",
     title: "Goods Transport in Thane",
     description:
-      "Ask about goods transport and part load options in Thane. Provide exact pickup and delivery points so requirements and availability can be reviewed.",
+      "Enquire about goods and part load transport in Thane. Include collection and delivery points, shipment details and access notes for an availability review.",
     intro:
       "For a Thane goods movement, the exact pickup and delivery points help shape a useful enquiry. Share the shipment type and handling context so the transport requirement can be reviewed before you make plans.",
     planningNotes:
@@ -80,7 +80,7 @@ export const locations: Location[] = [
     keyword: "goods transport in Vadodara",
     title: "Goods Transport in Vadodara (Baroda)",
     description:
-      "Request information about goods and part load transport in Vadodara (Baroda). Share shipment and route details to check service availability.",
+      "Ask about goods and part load transport in Vadodara or Baroda. Share both locations, goods details and handling needs to review possible transport arrangements.",
     intro:
       "Whether your enquiry calls the city Vadodara or Baroda, include the name used at the pickup and delivery points. Clear location details help us understand the movement you need and review the available transport options.",
     planningNotes:
@@ -110,7 +110,7 @@ export const locations: Location[] = [
     keyword: "goods transport in Ahmedabad",
     title: "Goods Transport in Ahmedabad",
     description:
-      "Enquire about goods transportation and part load options in Ahmedabad. Send exact locations and shipment details for an availability check.",
+      "Enquire about goods and part load transport involving Ahmedabad. Provide both locations, shipment dimensions, handling notes and pickup date for review.",
     intro:
       "Use this page to enquire about a goods movement involving Ahmedabad. A clear description of the shipment, its packaging, and the precise locations at both ends helps make the initial discussion more useful.",
     planningNotes:
@@ -140,7 +140,7 @@ export const locations: Location[] = [
     keyword: "goods transport to Uttar Pradesh",
     title: "Goods Transport to Uttar Pradesh",
     description:
-      "Enquire about goods transport to or from Uttar Pradesh. Provide the specific district or city, origin, shipment description and preferred date.",
+      "Ask about goods transport to or from Uttar Pradesh. Include the destination city or district, pickup point and shipment details so the route can be reviewed.",
     intro:
       "An enquiry for Uttar Pradesh needs more than a state name: include the destination city or district and the pickup location. With those details and a description of the goods, the request can be reviewed for an appropriate arrangement.",
     planningNotes:
@@ -170,7 +170,7 @@ export const locations: Location[] = [
     keyword: "goods transport to Rajasthan",
     title: "Goods Transport to Rajasthan",
     description:
-      "Ask about goods and part load transport to or from Rajasthan. Share the exact city, pickup details and shipment requirements for review.",
+      "Enquire about goods and part load transport to or from Rajasthan. Share the destination city, pickup details and shipment requirements to check availability.",
     intro:
       "For a Rajasthan movement, identify the destination city as well as the pickup point. Different delivery locations have different practical requirements, so the shipment description and contact details are useful from the start.",
     planningNotes:

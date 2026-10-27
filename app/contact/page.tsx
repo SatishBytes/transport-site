@@ -9,9 +9,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { isConfiguredValue, siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Contact Us",
+  title: `Contact ${siteConfig.companyName}`,
   description:
-    `Contact ${siteConfig.companyName} about goods transport and part load enquiries using the business contact channels listed on this page.`,
+    `Contact ${siteConfig.companyName} by phone, email or WhatsApp to discuss goods transport, part load options and shipment requirements before confirming a booking.`,
   path: "/contact",
 });
 
@@ -47,7 +47,7 @@ export default function ContactPage() {
         title="Contact details"
         description="Use the listed business contact details to discuss a shipment and confirm service availability."
       >
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="reveal-stagger grid gap-5 md:grid-cols-2">
           <Card>
             <Phone aria-hidden="true" className="text-amber-700" size={22} />
             <h2 className="mt-4 font-bold text-slate-950">Phone number</h2>

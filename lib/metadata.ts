@@ -20,26 +20,36 @@ export function createPageMetadata({
   const url = canonicalPath
     ? new URL(canonicalPath, siteConfig.productionDomain).toString()
     : undefined;
-  const socialTitle = title.endsWith(`| ${siteConfig.companyName}`)
-    ? title
-    : `${title} | ${siteConfig.companyName}`;
+  const socialImage = new URL(
+    "/goods-transport-social-share.png",
+    siteConfig.productionDomain,
+  ).toString();
 
   return {
-    title,
+    title: { absolute: title },
     description,
     ...(url ? { alternates: { canonical: url } } : {}),
     openGraph: {
-      title: socialTitle,
+      title,
       description,
       ...(url ? { url } : {}),
       siteName: siteConfig.companyName,
       locale: "en_IN",
       type: "website",
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: `${siteConfig.companyName} goods transport and part load services`,
+        },
+      ],
     },
     twitter: {
-      card: "summary",
-      title: socialTitle,
+      card: "summary_large_image",
+      title,
       description,
+      images: [socialImage],
     },
   };
 }

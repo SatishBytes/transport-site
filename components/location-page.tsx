@@ -36,7 +36,7 @@ export function LocationPage({ location }: LocationPageProps) {
         title={`Transport planning for ${location.name}`}
         description={location.planningNotes}
       >
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="reveal-stagger grid gap-4 md:grid-cols-3">
           {location.shipmentExamples.map((example) => (
             <Card key={example} className="flex gap-3">
               <CircleCheck
@@ -75,12 +75,12 @@ export function LocationPage({ location }: LocationPageProps) {
 
       {relatedLocations.length > 0 && (
         <Section className="bg-slate-50" title="Explore other locations">
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
             {relatedLocations.map((related) => (
               <Link
                 key={related.slug}
                 href={getLocationHref(related)}
-                className="rounded-xl border border-slate-200 bg-white p-5 font-bold text-slate-900 transition-colors hover:border-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                className="rounded-xl border border-slate-200 bg-white p-5 font-bold text-slate-900 transition-transform duration-300 hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
               >
                 {related.name} goods transport
               </Link>

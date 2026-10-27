@@ -79,6 +79,14 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/get-a-quote"
+                className="font-semibold text-white underline decoration-amber-400 underline-offset-4 hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+              >
+                Get a transport quote
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -149,7 +157,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${siteConfig.developer.name} on LinkedIn`}
-                  className="rounded-sm text-slate-400 transition-colors hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="rounded-sm text-slate-400 hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
                 >
                   <svg
                     aria-hidden="true"
@@ -168,7 +176,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${siteConfig.developer.name} on GitHub`}
-                  className="rounded-sm text-slate-400 transition-colors hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="rounded-sm text-slate-400 hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
                 >
                   <svg
                     aria-hidden="true"

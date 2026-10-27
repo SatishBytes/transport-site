@@ -1,9 +1,42 @@
 // Before launch, replace the domain and contact-number placeholders with verified business details.
+const experienceYears = 10;
+const configuredSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.example.com";
+
+function getProductionDomain(siteUrl: string) {
+  let url: URL;
+
+  try {
+    url = new URL(siteUrl);
+  } catch {
+    throw new Error(
+      "NEXT_PUBLIC_SITE_URL must be an absolute HTTPS origin, such as https://www.example.com.",
+    );
+  }
+
+  if (
+    url.protocol !== "https:" ||
+    url.username ||
+    url.password ||
+    url.pathname !== "/" ||
+    url.search ||
+    url.hash
+  ) {
+    throw new Error(
+      "NEXT_PUBLIC_SITE_URL must be an HTTPS origin without a path, query, or fragment.",
+    );
+  }
+
+  return url.origin;
+}
+
 export const siteConfig = {
   companyName: "Bachan Road Carriers",
   copyrightYear: 2026,
   tagline: "Goods transport and part load logistics",
-  productionDomain: "https://www.example.com",
+  experienceYears,
+  experienceLabel: `${experienceYears}+ Years`,
+  productionDomain: getProductionDomain(configuredSiteUrl),
   phone: "7021028726",
   whatsappNumber: "917021028726",
   email: "bachanroadcarriers7289@gmail.com",

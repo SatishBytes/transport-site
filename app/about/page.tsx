@@ -6,9 +6,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "About Us",
+  title: `About ${siteConfig.companyName}`,
   description:
-    `Learn about ${siteConfig.companyName} and our approach to goods transport and part load enquiries. Share shipment details to discuss an arrangement.`,
+    `Learn about ${siteConfig.companyName} and its ${siteConfig.experienceLabel.toLowerCase()} of goods transport experience. Explore its approach to shipment planning, part loads and confirmed bookings.`,
   path: "/about",
 });
 
@@ -17,7 +17,7 @@ export default function AboutPage() {
     <main id="main-content" className="flex-1">
       <PageIntro
         title={`About ${siteConfig.companyName}`}
-        description="We help businesses start a clear conversation about moving goods by road, from the first shipment details to a confirmed transport arrangement."
+        description={`With ${siteConfig.experienceLabel.toLowerCase()} of experience in goods transport, we help businesses discuss moving goods by road, from the first shipment details to a confirmed transport arrangement.`}
         path="/about"
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -29,7 +29,7 @@ export default function AboutPage() {
         title="Transport planning starts with the details"
         description={`${siteConfig.companyName} focuses on understanding what is being shipped, where it needs to go, and what the pickup and receiving arrangements require. We discuss available options only after reviewing those details.`}
       >
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="reveal-stagger grid gap-5 md:grid-cols-3">
           <Card>
             <h3 className="text-lg font-bold text-slate-950">
               Understand the shipment
@@ -61,6 +61,9 @@ export default function AboutPage() {
       </Section>
       <Section className="bg-slate-50" title="Our transport focus">
         <div className="max-w-3xl space-y-5 leading-8 text-slate-700">
+          <p>
+            Door To door transport arrangements are discussed only after the shipment details have been shared. We avoid making assumptions about a consignment and its handling requirements.
+          </p>
           <p>
             Our focus is goods transportation and part load transport enquiries.
             A part load may suit a consignment that does not need an entire

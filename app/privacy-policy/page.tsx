@@ -4,9 +4,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Privacy Policy",
+  title: `Privacy Policy | ${siteConfig.companyName}`,
   description:
-    `Read how the ${siteConfig.companyName} website handles information entered in its client-side transport enquiry form.`,
+    `Read how the ${siteConfig.companyName} website handles information entered into its transport enquiry form and what happens when you choose to send it via WhatsApp.`,
   path: "/privacy-policy",
 });
 

@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Part Load Transport Services",
+  title: `Part Load Transport | ${siteConfig.companyName}`,
   description:
-    `Learn how part load transport works, what shipment details to provide, and enquire about availability in ${siteConfig.companyName} target locations.`,
+    "Learn how part load transport works and what details to share. Ask Bachan Road Carriers about shipment suitability and availability for your exact route.",
   path: "/part-load-transport",
 });
 
@@ -55,7 +55,7 @@ export default function PartLoadPage() {
         title="What does part load transport mean?"
         description="Instead of arranging an entire truck for one consignment, a suitable smaller shipment may travel with other compatible goods. The arrangement depends on practical shipment and route requirements."
       >
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="reveal-stagger grid gap-5 md:grid-cols-3">
           <Card>
             <h3 className="font-bold text-slate-950">Shared capacity</h3>
             <p className="mt-2 leading-7 text-slate-600">
@@ -80,7 +80,7 @@ export default function PartLoadPage() {
         </div>
       </Section>
       <Section className="bg-slate-50" title="Shipments you can ask us about">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
           {[
             "A few packaged cartons for a business delivery",
             "A small or partial stock movement between locations",
@@ -99,7 +99,7 @@ export default function PartLoadPage() {
         </p>
       </Section>
       <Section title="What to include in your enquiry">
-        <ol className="grid gap-4 sm:grid-cols-2">
+        <ol className="reveal-stagger grid gap-4 sm:grid-cols-2">
           {[
             "Pickup and delivery city or full location",
             "Goods description and packaging",

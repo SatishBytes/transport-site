@@ -4,9 +4,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Terms & Conditions",
+  title: `Terms of Use | ${siteConfig.companyName}`,
   description:
-    `Read the general terms for using the ${siteConfig.companyName} website and submitting a goods transport enquiry.`,
+    `Review terms for using the ${siteConfig.companyName} website, including the limits of route, service and price information and the need to confirm an arrangement.`,
   path: "/terms",
 });
 

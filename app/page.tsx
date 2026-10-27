@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Boxes, Headset, Route, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  Award,
+  Boxes,
+  Headset,
+  Route,
+  ShieldCheck,
+} from "lucide-react";
 import { Button } from "@/components/button";
 import { Card } from "@/components/card";
 import { Container } from "@/components/container";
@@ -12,12 +19,12 @@ import { createPageMetadata } from "@/lib/metadata";
 import { locations, getLocationHref } from "@/data/locations";
 import { faqs } from "@/data/faqs";
 import { services } from "@/data/services";
-import { isConfiguredValue, siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: `Reliable Goods & Part Load Transport Services | ${siteConfig.companyName}`,
+  title: `Goods & Part Load Transport | ${siteConfig.companyName}`,
   description:
-    `Explore goods transport services and part load transport with ${siteConfig.companyName}. Enquire about Mumbai, Thane, Vadodara, Ahmedabad, Uttar Pradesh and Rajasthan.`,
+    `${siteConfig.companyName} offers goods and part load transport with ${siteConfig.experienceLabel.toLowerCase()} of experience. Share shipment and route details to discuss road transport options.`,
   path: "/",
 });
 
@@ -39,6 +46,12 @@ const trustHighlights = [
     description:
       "Ask about part load and other transport options to find an arrangement for your shipment.",
     icon: Boxes,
+  },
+  {
+    title: `${siteConfig.experienceLabel} of Experience`,
+    description:
+      "Experience in goods and part load transport across India.",
+    icon: Award,
   },
 ];
 
@@ -72,6 +85,7 @@ const processSteps = [
 const whyChooseUs = [
   "Transport enquiries are reviewed against the shipment details you provide.",
   "Part load options can be discussed when a consignment does not need a full truck.",
+  `Experienced transport team with ${siteConfig.experienceLabel.toLowerCase()} of experience in goods transport.`,
   "Pickup and delivery requirements are clarified before an arrangement is confirmed.",
   "Service availability is checked for the specific places and dates in your enquiry.",
 ];
@@ -86,25 +100,9 @@ const organizationSchema = {
   description: siteConfig.tagline,
   url: siteConfig.productionDomain,
 };
-const localBusinessSchema = isConfiguredValue(siteConfig.address)
-  ? {
-      "@type": "LocalBusiness",
-      name: siteConfig.companyName,
-      url: siteConfig.productionDomain,
-      address: siteConfig.address,
-      ...(isConfiguredValue(siteConfig.phone)
-        ? { telephone: siteConfig.phone }
-        : {}),
-      ...(isConfiguredValue(siteConfig.email)
-        ? { email: siteConfig.email }
-        : {}),
-    }
-  : null;
 const organizationStructuredData = {
   "@context": "https://schema.org",
-  ...(localBusinessSchema
-    ? { "@graph": [organizationSchema, localBusinessSchema] }
-    : organizationSchema),
+  ...organizationSchema,
 };
 
 export default function Home() {
@@ -121,18 +119,14 @@ export default function Home() {
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               Reliable Goods &amp; Part Load Transport Services
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-              Looking for goods transport services for your business shipment?
-              Share the pickup, delivery and goods details to discuss part load
-              transport and other road transport options.
+            <p className="hero-support mt-6 max-w-xl text-lg leading-8 text-slate-300">
+              With {siteConfig.experienceLabel.toLowerCase()} of experience in
+              goods transport, we help businesses discuss shipment details,
+              part load transport and other road transport options.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="hero-actions mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href="/get-a-quote">Get a Transport Quote</Button>
-              <Button
-                href="/services"
-                variant="outline"
-                className="border-slate-600 bg-transparent text-white hover:bg-slate-800"
-              >
+              <Button href="/services" variant="secondary">
                 Explore Our Services
               </Button>
             </div>
@@ -146,6 +140,9 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
+            <span className="hero-badge absolute left-4 top-4 rounded-full border border-white/20 bg-slate-950/85 px-3 py-1.5 text-xs font-bold text-amber-200 shadow-lg">
+              {siteConfig.experienceLabel} in Goods Transport
+            </span>
           </div>
         </Container>
       </section>
@@ -155,7 +152,7 @@ export default function Home() {
         title="Support for your goods movement"
         description="Start with a clear conversation about your shipment and the arrangement you need."
       >
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="reveal-stagger grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {trustHighlights.map(({ title, description, icon: Icon }) => (
             <Card key={title}>
               <span className="inline-flex size-12 items-center justify-center rounded-xl bg-amber-100 text-amber-800">
@@ -175,7 +172,7 @@ export default function Home() {
         title="Our Services"
         description="Choose an option to discuss, then share your shipment information for an availability check."
       >
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="reveal-stagger grid gap-5 md:grid-cols-3">
           {homeServices.map((service) => (
             <Card key={service.slug} className="flex flex-col">
               <h3 className="text-xl font-bold text-slate-950">
@@ -190,10 +187,14 @@ export default function Home() {
                     ? "/part-load-transport"
                     : `/services#${service.slug}`
                 }
-                className="mt-5 inline-flex w-fit items-center gap-2 font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
+                className="group mt-5 inline-flex w-fit items-center gap-2 font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
               >
                 Learn about {service.title}
-                <ArrowRight aria-hidden="true" size={17} />
+                <ArrowRight
+                  aria-hidden="true"
+                  size={17}
+                  className="transition-transform duration-200 group-hover:translate-x-1"
+                />
               </Link>
             </Card>
           ))}
@@ -205,19 +206,19 @@ export default function Home() {
         title="Popular Service Locations"
         description="Ask about a shipment involving one of these locations. Confirm availability for your exact pickup and delivery points."
       >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="reveal-stagger grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {locations.map((location) => (
             <Link
               key={location.slug}
               href={getLocationHref(location)}
-              className="group rounded-xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="group rounded-xl border border-slate-200 bg-white p-5 transition-transform duration-300 hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
             >
               <span className="flex items-center justify-between gap-3 font-bold text-slate-950">
                 {location.name}
                 <ArrowRight
                   aria-hidden="true"
                   size={18}
-                  className="text-amber-700 transition-transform group-hover:translate-x-1"
+                  className="text-amber-700 transition-transform duration-200 group-hover:translate-x-1"
                 />
               </span>
               <span className="mt-2 block text-sm leading-6 text-slate-600">
@@ -242,7 +243,7 @@ export default function Home() {
         title="How It Works"
         description="A straightforward process begins with accurate shipment information."
       >
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="reveal-stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step) => (
             <Card key={step.number}>
               <p className="text-sm font-extrabold tracking-widest text-amber-700">
@@ -264,7 +265,7 @@ export default function Home() {
         title={`Why Choose ${siteConfig.companyName}`}
         description="We focus on practical information and clear communication rather than unverified promises."
       >
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
           {whyChooseUs.map((reason) => (
             <div key={reason} className="flex gap-3 rounded-xl bg-amber-50 p-5">
               <Route

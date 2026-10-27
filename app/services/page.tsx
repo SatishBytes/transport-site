@@ -11,9 +11,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Goods Transport Services",
+  title: `Goods Transport Services | ${siteConfig.companyName}`,
   description:
-    `Explore part load transport, goods transportation and road transport services from ${siteConfig.companyName}. Ask about full truck load only if available.`,
+    `Explore part load, goods and road transport services from ${siteConfig.companyName}. Share shipment details to discuss suitability, routes and availability.`,
   path: "/services",
 });
 
@@ -24,18 +24,14 @@ const visibleServices = services.filter(
 export default function ServicesPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: visibleServices.map((service, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Service",
-        name: service.title,
-        description: service.summary,
-        provider: {
-          "@type": "Organization",
-          name: siteConfig.companyName,
-        },
+    "@graph": visibleServices.map((service) => ({
+      "@type": "Service",
+      name: service.title,
+      description: service.summary,
+      provider: {
+        "@type": "Organization",
+        name: siteConfig.companyName,
+        url: siteConfig.productionDomain,
       },
     })),
   };
@@ -57,7 +53,7 @@ export default function ServicesPage() {
         title="Choose a service to discuss"
         description="Service suitability depends on your goods, locations, handling needs, and confirmed availability."
       >
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="reveal-stagger grid gap-5 md:grid-cols-2">
           {visibleServices.map((service) => (
             <Card id={service.slug} key={service.slug} className="flex flex-col">
               <h2 className="text-xl font-bold text-slate-950">

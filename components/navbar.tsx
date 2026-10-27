@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Truck, X } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/navigation";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "./button";
@@ -11,8 +11,17 @@ import { Container } from "./container";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const updateScrollState = () => setHasScrolled(window.scrollY > 8);
+
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
 
   function isActive(href: string) {
     return href === "/"
@@ -22,7 +31,7 @@ export function Navbar() {
 
   return (
     <header
-      className="relative z-20 border-b border-slate-200 bg-white"
+      className={`relative z-20 border-b border-slate-200 bg-white ${hasScrolled ? "shadow-md" : ""}`}
       onKeyDown={(event) => {
         if (event.key === "Escape" && isMenuOpen) {
           setIsMenuOpen(false);
@@ -58,10 +67,10 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`rounded-sm border-b-2 pb-1 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 ${
+                className={`relative rounded-sm pb-1 text-sm after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:bg-amber-500 after:transition-transform after:duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 ${
                   active
-                    ? "border-amber-500 font-semibold text-amber-700 hover:text-amber-800"
-                    : "border-transparent font-medium text-slate-700 hover:border-amber-500 hover:text-amber-700"
+                    ? "font-semibold text-amber-700 after:scale-x-100 hover:text-amber-800"
+                    : "font-medium text-slate-700 after:scale-x-0 hover:text-amber-700 hover:after:scale-x-100"
                 }`}
               >
                 {item.label}
@@ -83,7 +92,7 @@ export function Navbar() {
         <button
           ref={menuButtonRef}
           type="button"
-          className="inline-flex size-11 items-center justify-center rounded-lg text-slate-900 transition-colors hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 lg:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-lg text-slate-900 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 lg:hidden"
           aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
@@ -100,8 +109,13 @@ export function Navbar() {
       <nav
         id="mobile-navigation"
         aria-label="Mobile navigation"
-        hidden={!isMenuOpen}
-        className="border-t border-slate-200 bg-white px-5 py-4 lg:hidden sm:px-8"
+        aria-hidden={!isMenuOpen}
+        inert={!isMenuOpen}
+        className={`absolute left-0 right-0 top-full border-t border-slate-200 bg-white px-5 py-4 shadow-lg transition-[transform,opacity] duration-300 ease-out lg:hidden sm:px-8 ${
+          isMenuOpen
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-2 opacity-0"
+        }`}
       >
         <ul className="mx-auto flex w-full max-w-7xl flex-col gap-1">
           {navigation.map((item) => {
@@ -112,10 +126,10 @@ export function Navbar() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block rounded-lg border-b-2 px-3 py-3 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 ${
+                  className={`relative block rounded-lg border-b-2 px-3 py-3 after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:origin-left after:bg-amber-500 after:transition-transform after:duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 ${
                     active
-                      ? "border-amber-500 font-semibold text-amber-700 hover:bg-amber-50 hover:text-amber-800"
-                      : "border-transparent font-medium text-slate-800 hover:border-amber-500 hover:bg-slate-50 hover:text-amber-700"
+                      ? "border-amber-500 font-semibold text-amber-700 after:scale-x-100 hover:bg-amber-50 hover:text-amber-800"
+                      : "border-transparent font-medium text-slate-800 after:scale-x-0 hover:bg-slate-50 hover:text-amber-700 hover:after:scale-x-100"
                   }`}
                 >
                   {item.label}

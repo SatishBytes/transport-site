@@ -6,8 +6,8 @@ import { siteConfig } from "@/lib/site-config";
 
 export const metadata = {
   ...createPageMetadata({
-    title: "Page Not Found",
-    description: `The page could not be found. Return to ${siteConfig.companyName} or browse transport services.`,
+    title: `Page Not Found | ${siteConfig.companyName}`,
+    description: `The requested page could not be found. Browse ${siteConfig.companyName} goods and part load services or return to the homepage to find route and contact information.`,
   }),
   robots: { index: false, follow: true },
 };

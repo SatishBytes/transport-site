@@ -278,7 +278,7 @@ export function QuoteForm() {
       "aria-invalid": Boolean(error),
       "aria-describedby": error ? `${name}-error` : undefined,
       className:
-        "mt-2 min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 text-slate-950 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-amber-400",
+        "mt-2 min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 text-slate-950 outline-none transition-transform duration-200 focus:scale-[1.005] focus:border-slate-900 focus:ring-2 focus:ring-amber-400",
     } as const;
   }
 
@@ -300,7 +300,10 @@ export function QuoteForm() {
 
   function renderError(name: QuoteField) {
     return errors[name] ? (
-      <p id={`${name}-error`} className="mt-1 text-sm font-medium text-red-700">
+      <p
+        id={`${name}-error`}
+        className="motion-message mt-1 text-sm font-medium text-red-700"
+      >
         {errors[name]}
       </p>
     ) : null;
@@ -445,7 +448,7 @@ export function QuoteForm() {
             aria-describedby={
               errors.additionalDetails ? "additionalDetails-error" : undefined
             }
-            className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-amber-400"
+            className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition-transform duration-200 focus:scale-[1.005] focus:border-slate-900 focus:ring-2 focus:ring-amber-400"
           />
           {renderError("additionalDetails")}
         </div>
@@ -459,7 +462,7 @@ export function QuoteForm() {
           <p
             role="status"
             aria-live="polite"
-            className="max-w-2xl text-sm leading-6 text-slate-700"
+            className="motion-message max-w-2xl text-sm leading-6 text-slate-700"
           >
             {feedback}
           </p>

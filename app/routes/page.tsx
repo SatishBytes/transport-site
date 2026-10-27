@@ -10,9 +10,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Transport Locations & Route Enquiries",
+  title: `Goods Transport Routes | ${siteConfig.companyName}`,
   description:
-    `View ${siteConfig.companyName} target locations and ask about goods transport routes. Only specific routes confirmed by the business should be treated as available.`,
+    `Browse goods transport locations accepting enquiries. Share pickup and delivery points with ${siteConfig.companyName} to check availability for your shipment.`,
   path: "/routes",
 });
 
@@ -33,7 +33,7 @@ export default function RoutesPage() {
         title="Ask about a specific movement"
         description="Share the exact pickup and delivery points to check availability for your goods transport enquiry."
       >
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="reveal-stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {locations.map((location) => (
             <Card key={location.slug} className="flex flex-col">
               <h2 className="text-lg font-bold text-slate-950">
@@ -55,7 +55,7 @@ export default function RoutesPage() {
       </Section>
       <Section className="bg-slate-50" title="Confirmed transport routes">
         {routes.length > 0 ? (
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <ul className="reveal-stagger grid gap-4 sm:grid-cols-2">
             {routes.map((route) => (
               <li
                 key={route.slug}

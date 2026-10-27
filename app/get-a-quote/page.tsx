@@ -5,9 +5,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
-  title: "Get a Transport Quote",
+  title: `Transport Quote | ${siteConfig.companyName}`,
   description:
-    `Prepare a goods transport or part load enquiry for ${siteConfig.companyName}. Your quote details open in WhatsApp and are not saved to a company server.`,
+    `Prepare a goods or part load enquiry for ${siteConfig.companyName}. Review shipment details before sending through WhatsApp; information is not saved here.`,
   path: "/get-a-quote",
 });
 

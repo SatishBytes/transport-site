@@ -1,7 +1,9 @@
 // Before launch, replace the domain and contact-number placeholders with verified business details.
 const experienceYears = 10;
 const configuredSiteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.example.com";
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+  // Change this fallback when a custom domain is connected.
+  "https://transport-site-gamma.vercel.app";
 
 function getProductionDomain(siteUrl: string) {
   let url: URL;

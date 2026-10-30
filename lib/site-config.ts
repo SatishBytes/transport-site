@@ -42,7 +42,7 @@ export const siteConfig = {
   phone: "7021028726",
   whatsappNumber: "917021028726",
   email: "bachanroadcarriers7289@gmail.com",
-  address: "andheri Mumbai",
+  address: "andheri Mumbai Maharashtra",
   showFullTruckLoadService: false,
   developer: {
     name: "Satish Yadav",

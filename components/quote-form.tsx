@@ -54,6 +54,13 @@ const fieldLabels: Record<QuoteField, string> = {
   additionalDetails: "Additional details",
 };
 
+function normalizePhone(value: string) {
+  let digits = value.replace(/\D/g, "");
+  if (digits.length === 12 && digits.startsWith("91")) digits = digits.slice(2);
+  if (digits.length === 11 && digits.startsWith("0")) digits = digits.slice(1);
+  return digits.slice(0, 10);
+}
+
 function cleanField(value: FormDataEntryValue | null) {
   return String(value ?? "")
     .replace(/<[^>]*>/g, "")
@@ -133,8 +140,8 @@ function validateForm(values: QuoteValues): FieldErrors {
     }
   }
 
-  if (values.phone && !/^\d{10,10}$/.test(values.phone)) {
-    errors.phone = "Enter a 10-digit phone number.";
+  if (values.phone && !/^[6-9][0-9]{9}$/.test(values.phone)) {
+    errors.phone = "Enter a valid 10-digit mobile number";
   }
 
   if (values.pickupPinCode && !/^[1-9][0-9]{5}$/.test(values.pickupPinCode)) {
@@ -347,12 +354,23 @@ export function QuoteForm() {
             Phone <span className="text-red-700">*</span>
           </label>
           <input
-            autoComplete="tel"
-            type="tel"
-            inputMode="tel"
-            pattern="[0-9]{7,15}"
             {...getFieldProps("phone")}
+            type="tel"
+            inputMode="numeric"
+            autoComplete="tel-national"
+            maxLength={20}
+            aria-describedby={
+              errors.phone ? "phone-help phone-error" : "phone-help"
+            }
+            onChange={(event) => {
+              event.currentTarget.value = normalizePhone(
+                event.currentTarget.value,
+              );
+            }}
           />
+          <p id="phone-help" className="mt-1 text-sm text-slate-600">
+            10-digit mobile number
+          </p>
           {renderError("phone")}
         </div>
         <div className="grid grid-cols-1 gap-5 sm:col-span-2 sm:grid-cols-[minmax(0,2fr)_minmax(8rem,1fr)]">

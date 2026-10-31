@@ -27,6 +27,8 @@ import { createPageMetadata } from "@/lib/metadata";
 import { locations, getLocationHref } from "@/data/locations";
 import { faqs } from "@/data/faqs";
 import { services } from "@/data/services";
+import { vehicles } from "@/data/vehicles";
+import { bodyTypes } from "@/data/body-types";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createPageMetadata({
@@ -145,26 +147,54 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative aspect-[1.5/1] overflow-hidden rounded-3xl border border-white/15 bg-slate-800 shadow-[0_32px_70px_-35px_rgba(0,0,0,0.8)]">
-            <Image
-              src="/goods-transport-truck.svg"
-              alt="Goods transport truck carrying a freight shipment on the road"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-            <span className="hero-badge absolute left-4 top-4 rounded-full border border-white/25 bg-slate-950/90 px-3 py-1.5 text-xs font-bold text-accent-bright shadow-lg">
-              {siteConfig.experienceLabel} in Goods Transport
-            </span>
-            <div className="route-glass absolute bottom-3 left-3 right-3 rounded-2xl p-3 text-white sm:bottom-4 sm:left-auto sm:right-4 sm:w-64 sm:p-4">
+          <div className="hero-visual-card relative min-w-0 w-full rounded-3xl border border-white/20 bg-white/95 p-3 shadow-[0_32px_70px_-35px_rgba(0,0,0,0.8)] sm:p-4 dark:border-white/15 dark:bg-slate-900/95">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
+              <Image
+                src="/hero-truck-scene.svg"
+                alt="Goods transport truck driving on a highway"
+                width={720}
+                height={480}
+                unoptimized
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="h-full w-full object-cover"
+              />
+              <span className="hero-badge absolute left-3 top-3 rounded-full border border-white/25 bg-slate-950/90 px-3 py-1.5 text-xs font-bold text-accent-bright shadow-lg sm:left-4 sm:top-4">
+                {siteConfig.experienceLabel} in Goods Transport
+              </span>
+            </div>
+            <nav
+              aria-label="Vehicle options"
+              className="hero-info-chips mt-3 flex min-w-0 max-w-full snap-x snap-mandatory gap-2 overflow-x-auto pb-1 md:flex-wrap md:overflow-visible md:pb-0"
+            >
+              {vehicles.map((vehicle) => (
+                <Link
+                  key={vehicle.id}
+                  href="#vehicle-sizes"
+                  aria-label={`Learn about ${vehicle.sizeFeet} feet vehicles`}
+                  className="hero-info-chip shrink-0 snap-start"
+                >
+                  {vehicle.sizeFeet} ft
+                </Link>
+              ))}
+              {bodyTypes.map((bodyType) => (
+                <Link
+                  key={bodyType.id}
+                  href="#our-services"
+                  className="hero-info-chip shrink-0 snap-start"
+                >
+                  {bodyType.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="route-glass mt-3 rounded-2xl px-4 py-3 text-white">
               <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-slate-200">
                 Shipment route
               </p>
-              <div className="mt-3 flex items-center gap-2">
+              <div className="mt-2 flex items-center gap-2">
                 <div className="min-w-0">
                   <span className="block size-2.5 rounded-full bg-accent-bright ring-4 ring-accent-bright/15" />
-                  <span className="mt-2 block text-xs font-semibold">Pickup</span>
+                  <span className="mt-1.5 block text-xs font-semibold">Pickup</span>
                 </div>
                 <div className="route-track mx-1">
                   <span className="route-track-line" />
@@ -174,7 +204,7 @@ export default function Home() {
                 </div>
                 <div className="min-w-0 text-right">
                   <span className="ml-auto block size-2.5 rounded-full bg-accent-bright ring-4 ring-accent-bright/15" />
-                  <span className="mt-2 block text-xs font-semibold">Delivery</span>
+                  <span className="mt-1.5 block text-xs font-semibold">Delivery</span>
                 </div>
               </div>
             </div>

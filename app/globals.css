@@ -447,6 +447,116 @@ body {
   transform-origin: left center;
 }
 
+.route-progress {
+  position: fixed;
+  z-index: 80;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--accent-bright));
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition:
+    transform 6s cubic-bezier(0.12, 0.62, 0.38, 1),
+    opacity 180ms ease-out;
+}
+
+.route-progress-active .scroll-progress {
+  opacity: 0;
+}
+
+.route-progress.route-progress-running {
+  opacity: 1;
+  transform: scaleX(0.8);
+}
+
+.route-progress.route-progress-completing {
+  opacity: 0;
+  transform: scaleX(1);
+  transition:
+    transform 180ms ease-out,
+    opacity 220ms ease-out 120ms;
+}
+
+.first-visit-loader {
+  position: fixed;
+  z-index: 70;
+  top: max(0.75rem, env(safe-area-inset-top));
+  right: max(0.75rem, env(safe-area-inset-right));
+  display: flex;
+  width: min(15rem, calc(100vw - 1.5rem));
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+  padding: 0.65rem 0.8rem;
+  color: var(--foreground);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+html[data-show-loader="true"] .first-visit-loader {
+  animation: first-visit-loader-out 900ms ease-out forwards;
+  visibility: visible;
+}
+
+.first-visit-loader-content {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 0.4rem;
+}
+
+.first-visit-loader-name {
+  overflow: hidden;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.first-visit-loader-track {
+  display: block;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: var(--line);
+}
+
+.first-visit-loader-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--gradient-start), var(--accent-bright));
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: first-visit-loader-progress 760ms ease-out forwards;
+}
+
+@keyframes first-visit-loader-out {
+  0%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes first-visit-loader-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .cities-marquee {
   overflow: hidden;
   border-block: 1px solid var(--line);
@@ -1213,6 +1323,10 @@ details.is-closing > .faq-answer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .first-visit-loader {
+    display: none;
+  }
+
   .hero-mesh.ambient-active,
   .ambient-active .ambient-glow-one,
   .ambient-active .ambient-glow-two,

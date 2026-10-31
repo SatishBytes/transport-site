@@ -49,12 +49,12 @@ export default function ContactPage() {
       >
         <div className="reveal-stagger grid gap-5 md:grid-cols-2">
           <Card>
-            <Phone aria-hidden="true" className="text-amber-700 dark:text-amber-300" size={22} />
+            <Phone aria-hidden="true" className="text-accent" size={22} />
             <h2 className="mt-4 font-bold text-slate-950 dark:text-slate-100">Phone number</h2>
             {phoneHref ? (
               <a
                 href={phoneHref}
-                className="mt-2 inline-block underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:focus-visible:outline-amber-300"
+                className="mt-2 inline-block underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 {siteConfig.phone}
               </a>
@@ -63,12 +63,12 @@ export default function ContactPage() {
             )}
           </Card>
           <Card>
-            <Mail aria-hidden="true" className="text-amber-700 dark:text-amber-300" size={22} />
+            <Mail aria-hidden="true" className="text-accent" size={22} />
             <h2 className="mt-4 font-bold text-slate-950 dark:text-slate-100">Email address</h2>
             {emailHref ? (
               <a
                 href={emailHref}
-                className="mt-2 inline-block break-all underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:focus-visible:outline-amber-300"
+                className="mt-2 inline-block break-all underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 {siteConfig.email}
               </a>
@@ -77,7 +77,7 @@ export default function ContactPage() {
             )}
           </Card>
           <Card>
-            <MapPin aria-hidden="true" className="text-amber-700 dark:text-amber-300" size={22} />
+            <MapPin aria-hidden="true" className="text-accent" size={22} />
             <h2 className="mt-4 font-bold text-slate-950 dark:text-slate-100">Business address</h2>
             <address className="mt-2 leading-7 not-italic text-slate-700 dark:text-slate-300">
               {siteConfig.address}
@@ -95,7 +95,7 @@ export default function ContactPage() {
           Prefer to start online?{" "}
           <Link
             href="/get-a-quote"
-            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
+            className="font-bold text-foreground underline decoration-accent underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             Prepare a transport enquiry
           </Link>

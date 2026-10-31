@@ -15,7 +15,10 @@ import { Button } from "@/components/button";
 import { Card } from "@/components/card";
 import { Container } from "@/components/container";
 import { CtaBanner } from "@/components/cta-banner";
+import { CitiesMarquee } from "@/components/cities-marquee";
 import { FAQList } from "@/components/faq-list";
+import { HeroAmbient } from "@/components/hero-ambient";
+import { InteractiveSurface } from "@/components/interactive-surface";
 import { JsonLd } from "@/components/json-ld";
 import { Section } from "@/components/section";
 import { createPageMetadata } from "@/lib/metadata";
@@ -117,9 +120,10 @@ export default function Home() {
       <JsonLd data={organizationStructuredData} />
 
       <section className="hero-mesh overflow-hidden text-white">
-        <Container className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:py-20">
+        <HeroAmbient />
+        <Container className="relative z-10 grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:py-20">
           <div className="max-w-2xl">
-            <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.2em] text-amber-300 sm:text-sm">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.2em] text-accent-bright sm:text-sm">
               {siteConfig.tagline}
             </p>
             <h1 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
@@ -148,7 +152,7 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
-            <span className="hero-badge absolute left-4 top-4 rounded-full border border-white/25 bg-slate-950/90 px-3 py-1.5 text-xs font-bold text-amber-200 shadow-lg">
+            <span className="hero-badge absolute left-4 top-4 rounded-full border border-white/25 bg-slate-950/90 px-3 py-1.5 text-xs font-bold text-accent-bright shadow-lg">
               {siteConfig.experienceLabel} in Goods Transport
             </span>
             <div className="route-glass absolute bottom-3 left-3 right-3 rounded-2xl p-3 text-white sm:bottom-4 sm:left-auto sm:right-4 sm:w-64 sm:p-4">
@@ -157,19 +161,17 @@ export default function Home() {
               </p>
               <div className="mt-3 flex items-center gap-2">
                 <div className="min-w-0">
-                  <span className="block size-2.5 rounded-full bg-amber-300 ring-4 ring-amber-300/15" />
+                  <span className="block size-2.5 rounded-full bg-accent-bright ring-4 ring-accent-bright/15" />
                   <span className="mt-2 block text-xs font-semibold">Pickup</span>
                 </div>
-                <div className="relative mx-1 flex-1">
-                  <span className="block border-t-2 border-dotted border-amber-200/80" />
-                  <Truck
-                    aria-hidden="true"
-                    size={19}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-amber-200"
-                  />
+                <div className="route-track mx-1">
+                  <span className="route-track-line" />
+                  <span aria-hidden="true" className="route-truck">
+                    <Truck size={19} />
+                  </span>
                 </div>
                 <div className="min-w-0 text-right">
-                  <span className="ml-auto block size-2.5 rounded-full bg-amber-300 ring-4 ring-amber-300/15" />
+                  <span className="ml-auto block size-2.5 rounded-full bg-accent-bright ring-4 ring-accent-bright/15" />
                   <span className="mt-2 block text-xs font-semibold">Delivery</span>
                 </div>
               </div>
@@ -177,6 +179,13 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <CitiesMarquee
+        cities={locations.map((location) => ({
+          name: location.name,
+          href: getLocationHref(location),
+        }))}
+      />
 
       <Section
         eyebrow="A practical transport partner"
@@ -207,9 +216,9 @@ export default function Home() {
           {homeServices.map((service, index) => {
             const Icon = serviceIcons[index % serviceIcons.length];
             return (
-              <Card
+              <InteractiveSurface
                 key={service.slug}
-                className={`service-card flex flex-col ${index === 0 ? "lg:row-span-2 lg:min-h-80" : ""}`}
+                className={`service-card surface-card p-6 flex flex-col ${index === 0 ? "lg:row-span-2 lg:min-h-80" : ""}`}
               >
                 <span className="accent-icon inline-flex size-12 items-center justify-center rounded-xl">
                   <Icon aria-hidden="true" size={23} />
@@ -235,7 +244,7 @@ export default function Home() {
                     className="transition-transform duration-200 group-hover:translate-x-1"
                   />
                 </Link>
-              </Card>
+              </InteractiveSurface>
             );
           })}
         </div>
@@ -248,7 +257,7 @@ export default function Home() {
       >
         <div className="reveal-stagger grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {locations.map((location) => (
-            <Link
+            <InteractiveSurface
               key={location.slug}
               href={getLocationHref(location)}
               className="location-card group surface-card block rounded-2xl p-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
@@ -266,13 +275,13 @@ export default function Home() {
               <span className="mt-3 block text-sm leading-6 text-muted">
                 {location.keyword}
               </span>
-            </Link>
+            </InteractiveSurface>
           ))}
         </div>
         <p className="mt-6">
           <Link
             href="/routes"
-            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
+            className="font-bold text-foreground underline decoration-accent underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             View location and route enquiries
           </Link>
@@ -332,7 +341,7 @@ export default function Home() {
         <p className="mt-5">
           <Link
             href="/faq"
-            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
+            className="font-bold text-foreground underline decoration-accent underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             Read all frequently asked questions
           </Link>

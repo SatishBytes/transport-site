@@ -41,7 +41,7 @@ export function LocationPage({ location }: LocationPageProps) {
             <Card key={example} className="flex gap-3">
               <CircleCheck
                 aria-hidden="true"
-                className="mt-1 shrink-0 text-amber-700 dark:text-amber-300"
+                className="mt-1 shrink-0 text-accent"
                 size={20}
               />
               <p className="leading-7 text-foreground">{example}</p>

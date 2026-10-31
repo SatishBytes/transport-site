@@ -18,9 +18,7 @@ export function ConversionActions() {
       "#site-footer, #quote-submit",
     );
 
-    if (!("IntersectionObserver" in window) || importantContent.length === 0) {
-      return;
-    }
+    if (!("IntersectionObserver" in window) || importantContent.length === 0) return;
 
     const intersectingTargets = new Set<Element>();
     const observer = new IntersectionObserver(

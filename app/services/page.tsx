@@ -85,7 +85,7 @@ export default function ServicesPage() {
         </p>
         <Link
           href="/routes"
-          className="mt-5 inline-flex rounded-sm font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
+          className="mt-5 inline-flex rounded-sm font-bold text-foreground underline decoration-accent underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
         >
           Browse locations and route enquiries
         </Link>

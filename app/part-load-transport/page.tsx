@@ -110,7 +110,7 @@ export default function PartLoadPage() {
               key={detail}
               className="flex gap-4 rounded-xl border border-slate-200 p-5 dark:border-slate-800"
             >
-              <span className="font-extrabold text-amber-700 dark:text-amber-300">
+              <span className="font-extrabold text-accent">
                 0{index + 1}
               </span>
               <span className="leading-7 text-slate-700 dark:text-slate-300">{detail}</span>
@@ -132,7 +132,7 @@ export default function PartLoadPage() {
             <Link
               key={location.slug}
               href={getLocationHref(location)}
-              className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:border-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-200 dark:focus-visible:outline-amber-300"
+              className="rounded-full border border-line bg-surface px-4 py-2 text-sm font-semibold text-foreground hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               {location.name}
             </Link>

@@ -17,9 +17,9 @@ export function Footer() {
         <div className="sm:col-span-2 lg:col-span-1">
           <Link
             href="/"
-            className="inline-flex items-center gap-3 rounded-sm text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400"
+            className="inline-flex items-center gap-3 rounded-sm text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright"
           >
-            <span className="flex size-10 items-center justify-center rounded-xl bg-amber-400 text-slate-950">
+            <span className="flex size-10 items-center justify-center rounded-xl bg-accent-bright text-[#172033]">
               <Truck aria-hidden="true" size={22} />
             </span>
             <span className="font-extrabold tracking-tight">
@@ -41,7 +41,7 @@ export function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="rounded-sm hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="rounded-sm hover:text-accent-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-bright"
                 >
                   {item.label}
                 </Link>
@@ -63,7 +63,7 @@ export function Footer() {
                       ? "/part-load-transport"
                       : "/services"
                   }
-                  className="rounded-sm hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="rounded-sm hover:text-accent-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-bright"
                 >
                   {service.title}
                 </Link>
@@ -73,7 +73,7 @@ export function Footer() {
               <li key={location.slug}>
                 <Link
                   href={getLocationHref(location)}
-                  className="rounded-sm hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="rounded-sm hover:text-accent-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-bright"
                 >
                   {location.name}
                 </Link>
@@ -82,7 +82,7 @@ export function Footer() {
             <li>
               <Link
                 href="/get-a-quote"
-                className="font-semibold text-white underline decoration-amber-400 underline-offset-4 hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                className="font-semibold text-white underline decoration-accent-bright underline-offset-4 hover:text-accent-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-bright"
               >
                 Get a transport quote
               </Link>
@@ -98,7 +98,7 @@ export function Footer() {
             <p className="flex items-start gap-3">
               <Phone
                 aria-hidden="true"
-                className="mt-0.5 shrink-0 text-amber-400"
+                className="mt-0.5 shrink-0 text-accent-bright"
                 size={17}
               />
               <span>{siteConfig.phone}</span>
@@ -106,7 +106,7 @@ export function Footer() {
             <p className="flex items-start gap-3">
               <Mail
                 aria-hidden="true"
-                className="mt-0.5 shrink-0 text-amber-400"
+                className="mt-0.5 shrink-0 text-accent-bright"
                 size={17}
               />
               <span>{siteConfig.email}</span>
@@ -114,7 +114,7 @@ export function Footer() {
             <p className="flex items-start gap-3">
               <MapPin
                 aria-hidden="true"
-                className="mt-0.5 shrink-0 text-amber-400"
+                className="mt-0.5 shrink-0 text-accent-bright"
                 size={17}
               />
               <span>{siteConfig.address}</span>
@@ -135,7 +135,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-sm hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                    className="rounded-sm hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-bright"
                   >
                     {item.label}
                   </Link>
@@ -157,7 +157,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${siteConfig.developer.name} on LinkedIn`}
-                  className="rounded-sm text-slate-400 hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="rounded-sm text-slate-400 hover:text-accent-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-bright"
                 >
                   <svg
                     aria-hidden="true"
@@ -176,7 +176,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${siteConfig.developer.name} on GitHub`}
-                  className="rounded-sm text-slate-400 hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="rounded-sm text-slate-400 hover:text-accent-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-bright"
                 >
                   <svg
                     aria-hidden="true"

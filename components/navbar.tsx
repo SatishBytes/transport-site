@@ -9,6 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 import { Button } from "./button";
 import { Container } from "./container";
 import { ThemeToggle } from "./theme-toggle";
+import { AccentPicker } from "./accent-picker";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +33,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`relative z-20 border-b border-line bg-surface ${hasScrolled ? "shadow-md" : ""}`}
+      className={`navbar-glass relative z-20 border-b ${hasScrolled ? "navbar-scrolled" : ""}`}
       onKeyDown={(event) => {
         if (event.key === "Escape" && isMenuOpen) {
           setIsMenuOpen(false);
@@ -47,7 +48,7 @@ export function Navbar() {
           className="flex min-w-0 items-center gap-3 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           onClick={() => setIsMenuOpen(false)}
         >
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-navy text-amber-300">
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-navy text-accent-bright">
             <Truck aria-hidden="true" size={25} />
           </span>
           <span className="min-w-0">
@@ -82,12 +83,13 @@ export function Navbar() {
             href="/get-a-quote"
             className={
               pathname === "/get-a-quote"
-                ? "ring-2 ring-amber-700 ring-offset-2 dark:ring-amber-300"
+                ? "ring-2 ring-accent ring-offset-2"
                 : ""
             }
           >
             Get a Quote
           </Button>
+          <AccentPicker />
           <ThemeToggle />
         </nav>
 
@@ -144,7 +146,7 @@ export function Navbar() {
               href="/get-a-quote"
               className={`w-full ${
                 pathname === "/get-a-quote"
-                  ? "ring-2 ring-amber-700 ring-offset-2 dark:ring-amber-300"
+                  ? "ring-2 ring-accent ring-offset-2"
                   : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
@@ -152,8 +154,12 @@ export function Navbar() {
               Get a Quote
             </Button>
           </li>
-          <li className="flex justify-end pt-2">
-            <ThemeToggle />
+          <li className="flex items-center justify-between pt-2">
+            <span className="text-sm font-semibold text-muted">Theme controls</span>
+            <div className="flex items-center gap-3">
+              <AccentPicker />
+              <ThemeToggle />
+            </div>
           </li>
         </ul>
       </nav>

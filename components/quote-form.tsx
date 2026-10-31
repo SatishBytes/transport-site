@@ -285,7 +285,7 @@ export function QuoteForm() {
       "aria-invalid": Boolean(error),
       "aria-describedby": error ? `${name}-error` : undefined,
       className:
-        "mt-2 min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 text-slate-950 outline-none transition-transform duration-200 focus:scale-[1.005] focus:border-slate-900 focus:ring-2 focus:ring-amber-400",
+        "mt-2 min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 text-slate-950 outline-none transition-transform duration-200 focus:scale-[1.005] focus:border-slate-900 focus:ring-2 focus:ring-amber-400 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-amber-300",
     } as const;
   }
 
@@ -309,7 +309,7 @@ export function QuoteForm() {
     return errors[name] ? (
       <p
         id={`${name}-error`}
-        className="motion-message mt-1 text-sm font-medium text-red-700"
+        className="motion-message mt-1 text-sm font-medium text-red-700 dark:text-red-400"
       >
         {errors[name]}
       </p>
@@ -318,7 +318,7 @@ export function QuoteForm() {
 
   return (
     <form
-      className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8"
+      className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8"
       onSubmit={handleSubmit}
       noValidate
     >
@@ -335,23 +335,23 @@ export function QuoteForm() {
           autoComplete="off"
         />
       </div>
-      <p className="text-sm text-slate-600">
-        Fields marked <span className="font-bold text-red-700">*</span> are
+      <p className="text-sm text-slate-600 dark:text-slate-300">
+        Fields marked <span className="font-bold text-red-700 dark:text-red-400">*</span> are
         required. This form opens a WhatsApp message; it does not save or send
         your information to a {siteConfig.companyName} server.
       </p>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="font-semibold text-slate-900">
-            Name <span className="text-red-700">*</span>
+          <label htmlFor="name" className="font-semibold text-slate-900 dark:text-slate-100">
+            Name <span className="text-red-700 dark:text-red-400">*</span>
           </label>
           <input autoComplete="name" {...getFieldProps("name")} />
           {renderError("name")}
         </div>
         <div>
-          <label htmlFor="phone" className="font-semibold text-slate-900">
-            Phone <span className="text-red-700">*</span>
+          <label htmlFor="phone" className="font-semibold text-slate-900 dark:text-slate-100">
+            Phone <span className="text-red-700 dark:text-red-400">*</span>
           </label>
           <input
             {...getFieldProps("phone")}
@@ -368,15 +368,15 @@ export function QuoteForm() {
               );
             }}
           />
-          <p id="phone-help" className="mt-1 text-sm text-slate-600">
+          <p id="phone-help" className="mt-1 text-sm text-slate-600 dark:text-slate-300">
             10-digit mobile number
           </p>
           {renderError("phone")}
         </div>
         <div className="grid grid-cols-1 gap-5 sm:col-span-2 sm:grid-cols-[minmax(0,2fr)_minmax(8rem,1fr)]">
           <div>
-            <label htmlFor="pickupCity" className="font-semibold text-slate-900">
-              Pickup city <span className="text-red-700">*</span>
+            <label htmlFor="pickupCity" className="font-semibold text-slate-900 dark:text-slate-100">
+              Pickup city <span className="text-red-700 dark:text-red-400">*</span>
             </label>
             <input autoComplete="address-level2" {...getFieldProps("pickupCity")} />
             {renderError("pickupCity")}
@@ -384,12 +384,12 @@ export function QuoteForm() {
           <div>
             <label
               htmlFor="pickupPinCode"
-              className="font-semibold text-slate-900"
+              className="font-semibold text-slate-900 dark:text-slate-100"
             >
-              Pickup PIN code <span className="text-red-700">*</span>
+              Pickup PIN code <span className="text-red-700 dark:text-red-400">*</span>
             </label>
             <input {...getPinCodeProps("pickupPinCode")} />
-            <p id="pickupPinCode-help" className="mt-1 text-sm text-slate-600">
+            <p id="pickupPinCode-help" className="mt-1 text-sm text-slate-600 dark:text-slate-300">
               6-digit PIN code
             </p>
             {renderError("pickupPinCode")}
@@ -399,9 +399,9 @@ export function QuoteForm() {
           <div>
             <label
               htmlFor="deliveryCity"
-              className="font-semibold text-slate-900"
+              className="font-semibold text-slate-900 dark:text-slate-100"
             >
-              Delivery city <span className="text-red-700">*</span>
+              Delivery city <span className="text-red-700 dark:text-red-400">*</span>
             </label>
             <input
               autoComplete="off"
@@ -412,20 +412,20 @@ export function QuoteForm() {
           <div>
             <label
               htmlFor="deliveryPinCode"
-              className="font-semibold text-slate-900"
+              className="font-semibold text-slate-900 dark:text-slate-100"
             >
-              Delivery PIN code <span className="text-red-700">*</span>
+              Delivery PIN code <span className="text-red-700 dark:text-red-400">*</span>
             </label>
             <input {...getPinCodeProps("deliveryPinCode")} />
-            <p id="deliveryPinCode-help" className="mt-1 text-sm text-slate-600">
+            <p id="deliveryPinCode-help" className="mt-1 text-sm text-slate-600 dark:text-slate-300">
               6-digit PIN code
             </p>
             {renderError("deliveryPinCode")}
           </div>
         </div>
         <div>
-          <label htmlFor="goodsType" className="font-semibold text-slate-900">
-            Goods type <span className="text-red-700">*</span>
+          <label htmlFor="goodsType" className="font-semibold text-slate-900 dark:text-slate-100">
+            Goods type <span className="text-red-700 dark:text-red-400">*</span>
           </label>
           <input {...getFieldProps("goodsType")} />
           {renderError("goodsType")}
@@ -433,9 +433,9 @@ export function QuoteForm() {
         <div>
           <label
             htmlFor="approximateWeight"
-            className="font-semibold text-slate-900"
+            className="font-semibold text-slate-900 dark:text-slate-100"
           >
-            Approximate weight <span className="text-red-700">*</span>
+            Approximate weight <span className="text-red-700 dark:text-red-400">*</span>
           </label>
           <input
             placeholder="For example, 250 kg"
@@ -444,8 +444,8 @@ export function QuoteForm() {
           {renderError("approximateWeight")}
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="pickupDate" className="font-semibold text-slate-900">
-            Preferred pickup date <span className="text-red-700">*</span>
+          <label htmlFor="pickupDate" className="font-semibold text-slate-900 dark:text-slate-100">
+            Preferred pickup date <span className="text-red-700 dark:text-red-400">*</span>
           </label>
           <input type="date" {...getFieldProps("pickupDate")} />
           {renderError("pickupDate")}
@@ -453,9 +453,9 @@ export function QuoteForm() {
         <div className="sm:col-span-2">
           <label
             htmlFor="additionalDetails"
-            className="font-semibold text-slate-900"
+            className="font-semibold text-slate-900 dark:text-slate-100"
           >
-            Additional details <span className="font-normal text-slate-500">(optional)</span>
+            Additional details             <span className="font-normal text-slate-500 dark:text-slate-400">(optional)</span>
           </label>
           <textarea
             id="additionalDetails"
@@ -466,7 +466,7 @@ export function QuoteForm() {
             aria-describedby={
               errors.additionalDetails ? "additionalDetails-error" : undefined
             }
-            className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition-transform duration-200 focus:scale-[1.005] focus:border-slate-900 focus:ring-2 focus:ring-amber-400"
+            className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition-transform duration-200 focus:scale-[1.005] focus:border-slate-900 focus:ring-2 focus:ring-amber-400 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-amber-300"
           />
           {renderError("additionalDetails")}
         </div>
@@ -480,7 +480,7 @@ export function QuoteForm() {
           <p
             role="status"
             aria-live="polite"
-            className="motion-message max-w-2xl text-sm leading-6 text-slate-700"
+            className="motion-message max-w-2xl text-sm leading-6 text-slate-700 dark:text-slate-300"
           >
             {feedback}
           </p>

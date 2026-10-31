@@ -25,20 +25,20 @@ export default function TermsPage() {
       <Section>
         <div className="max-w-3xl space-y-8">
           <section>
-            <h2 className="text-xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold text-slate-950 dark:text-slate-100">
               Website information and enquiries
             </h2>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
               Website content describes transport options for discussion. A
               location listing or enquiry form does not confirm that a specific
               route, shipment, date, or service is available.
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold text-slate-950 dark:text-slate-100">
               Quotes and arrangements
             </h2>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
               Shipment details are needed to review an enquiry. Price, timing,
               goods acceptance, handling, and other arrangements must be
               discussed and confirmed directly before a booking is made. Part
@@ -46,16 +46,16 @@ export default function TermsPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold text-slate-950 dark:text-slate-100">
               Contact details
             </h2>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
               Contact information shown as a placeholder is not a working
               contact channel. Verify and update the business details in the
               central site configuration before publishing the website.
             </p>
           </section>
-          <p className="text-sm leading-6 text-slate-600">
+          <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
             These website terms are general information and should be reviewed
             for the business&apos;s requirements before launch.
           </p>

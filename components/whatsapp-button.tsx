@@ -23,7 +23,7 @@ export function WhatsAppButton({
           <MessageCircle aria-hidden="true" size={18} />
           WhatsApp not configured
         </Button>
-        <p className="text-sm leading-6 text-slate-600">
+        <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
           The WhatsApp number is a placeholder. Use the{" "}
           <a
             href="/get-a-quote"

@@ -31,36 +31,36 @@ export default function AboutPage() {
       >
         <div className="reveal-stagger grid gap-5 md:grid-cols-3">
           <Card>
-            <h3 className="text-lg font-bold text-slate-950">
+            <h3 className="text-lg font-bold text-slate-950 dark:text-slate-100">
               Understand the shipment
             </h3>
-            <p className="mt-3 leading-7 text-slate-600">
+            <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">
               Goods type, packaging, approximate weight, and dimensions help
               frame a useful transport enquiry.
             </p>
           </Card>
           <Card>
-            <h3 className="text-lg font-bold text-slate-950">
+            <h3 className="text-lg font-bold text-slate-950 dark:text-slate-100">
               Review the locations
             </h3>
-            <p className="mt-3 leading-7 text-slate-600">
+            <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">
               Exact pickup and delivery points matter. Serviceability is
               checked for the movement you describe.
             </p>
           </Card>
           <Card>
-            <h3 className="text-lg font-bold text-slate-950">
+            <h3 className="text-lg font-bold text-slate-950 dark:text-slate-100">
               Confirm before booking
             </h3>
-            <p className="mt-3 leading-7 text-slate-600">
+            <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">
               Transport options, timing, and handling arrangements need to be
               discussed and confirmed before proceeding.
             </p>
           </Card>
         </div>
       </Section>
-      <Section className="bg-slate-50" title="Our transport focus">
-        <div className="max-w-3xl space-y-5 leading-8 text-slate-700">
+      <Section className="bg-slate-50 dark:bg-slate-900" title="Our transport focus">
+        <div className="max-w-3xl space-y-5 leading-8 text-slate-700 dark:text-slate-300">
           <p>
             Door To door transport arrangements are discussed only after the shipment details have been shared. We avoid making assumptions about a consignment and its handling requirements.
           </p>

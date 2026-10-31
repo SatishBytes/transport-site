@@ -15,7 +15,7 @@ export function Breadcrumbs({ items, className = "" }: BreadcrumbsProps) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className={`text-sm text-slate-600 ${className}`}
+      className={`text-sm text-slate-600 dark:text-slate-300 ${className}`}
     >
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((item, index) => {
@@ -27,7 +27,7 @@ export function Breadcrumbs({ items, className = "" }: BreadcrumbsProps) {
               {item.href && !isCurrentPage ? (
                 <Link
                   href={item.href}
-                  className="rounded-sm hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                  className="rounded-sm hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:hover:text-white dark:focus-visible:outline-amber-300"
                 >
                   {item.label}
                 </Link>

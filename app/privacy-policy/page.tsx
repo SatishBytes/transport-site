@@ -25,10 +25,10 @@ export default function PrivacyPolicyPage() {
       <Section>
         <div className="max-w-3xl space-y-8">
           <section>
-            <h2 className="text-xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold text-slate-950 dark:text-slate-100">
               Information you enter
             </h2>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
               The quote form asks for your name, phone number, pickup and
               delivery cities, goods type, approximate weight, preferred pickup
               date, and optional additional details. The form is processed in
@@ -37,10 +37,10 @@ export default function PrivacyPolicyPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold text-slate-950 dark:text-slate-100">
               WhatsApp enquiries
             </h2>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
               When configured, submitting the form opens a prepared message in
               WhatsApp. You can review and choose whether to send it. If the
               WhatsApp contact is not configured, the form displays a message
@@ -50,10 +50,10 @@ export default function PrivacyPolicyPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold text-slate-950 dark:text-slate-100">
               Contact and updates
             </h2>
-            <p className="mt-3 leading-7 text-slate-700">
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
               Business contact details on this site must be verified and
               configured before launch. This policy should be reviewed and
               updated if the website&apos;s data handling changes.

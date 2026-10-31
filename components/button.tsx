@@ -36,9 +36,9 @@ const variantClasses: Record<ButtonVariant, string> = {
   primary:
     "bg-amber-400 text-slate-950 hover:bg-amber-300 active:bg-amber-500 focus-visible:outline-amber-400 disabled:bg-amber-100 disabled:text-slate-600",
   secondary:
-    "bg-slate-900 text-white hover:bg-slate-800 hover:text-white active:bg-slate-950 active:text-white focus-visible:outline-amber-400 disabled:bg-slate-300 disabled:text-slate-600",
+    "bg-slate-900 text-white hover:bg-slate-800 hover:text-white active:bg-slate-950 active:text-white focus-visible:outline-amber-400 disabled:bg-slate-300 disabled:text-slate-700 dark:bg-slate-200 dark:text-slate-950 dark:hover:bg-slate-100 dark:hover:text-slate-950 dark:active:bg-white dark:active:text-slate-950 dark:disabled:bg-slate-700 dark:disabled:text-slate-200",
   outline:
-    "border border-slate-300 bg-white text-slate-900 hover:border-slate-900 hover:bg-slate-50 hover:text-slate-900 active:bg-slate-100 active:text-slate-900 focus-visible:outline-amber-500 disabled:border-slate-200 disabled:bg-slate-100 disabled:text-slate-500",
+    "border border-slate-300 bg-white text-slate-900 hover:border-slate-900 hover:bg-slate-50 hover:text-slate-900 active:bg-slate-100 active:text-slate-900 focus-visible:outline-amber-500 disabled:border-slate-200 disabled:bg-slate-100 disabled:text-slate-700 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-slate-400 dark:hover:bg-slate-800 dark:hover:text-white dark:active:bg-slate-700 dark:active:text-white dark:disabled:border-slate-700 dark:disabled:bg-slate-800 dark:disabled:text-slate-300",
 };
 
 function getButtonClassName(variant: ButtonVariant, className: string) {

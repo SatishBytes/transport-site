@@ -41,17 +41,17 @@ export function LocationPage({ location }: LocationPageProps) {
             <Card key={example} className="flex gap-3">
               <CircleCheck
                 aria-hidden="true"
-                className="mt-1 shrink-0 text-amber-700"
+                className="mt-1 shrink-0 text-amber-700 dark:text-amber-300"
                 size={20}
               />
-              <p className="leading-7 text-slate-700">{example}</p>
+              <p className="leading-7 text-slate-700 dark:text-slate-300">{example}</p>
             </Card>
           ))}
         </div>
       </Section>
 
       <Section
-        className="bg-slate-50"
+        className="bg-slate-50 dark:bg-slate-900"
         eyebrow="Transport options"
         title={`Discuss a ${location.name} goods movement`}
         description="Tell us the origin and destination, shipment type, approximate weight and dimensions, and preferred pickup date. We will review the information with you; availability and arrangements must be confirmed before booking."
@@ -74,13 +74,13 @@ export function LocationPage({ location }: LocationPageProps) {
       </Section>
 
       {relatedLocations.length > 0 && (
-        <Section className="bg-slate-50" title="Explore other locations">
+        <Section className="bg-slate-50 dark:bg-slate-900" title="Explore other locations">
           <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
             {relatedLocations.map((related) => (
               <Link
                 key={related.slug}
                 href={getLocationHref(related)}
-                className="rounded-xl border border-slate-200 bg-white p-5 font-bold text-slate-900 transition-transform duration-300 hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                className="rounded-xl border border-slate-200 bg-white p-5 font-bold text-slate-900 transition-transform duration-300 hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus-visible:outline-amber-300"
               >
                 {related.name} goods transport
               </Link>
@@ -90,11 +90,11 @@ export function LocationPage({ location }: LocationPageProps) {
       )}
 
       <Container className="pb-16">
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-slate-600 dark:text-slate-300">
           Need a different destination?{" "}
           <Link
             href="/routes"
-            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4"
+            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 dark:text-slate-100"
           >
             View locations and route enquiries
           </Link>

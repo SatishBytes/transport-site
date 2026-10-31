@@ -57,29 +57,29 @@ export default function PartLoadPage() {
       >
         <div className="reveal-stagger grid gap-5 md:grid-cols-3">
           <Card>
-            <h3 className="font-bold text-slate-950">Shared capacity</h3>
-            <p className="mt-2 leading-7 text-slate-600">
+            <h3 className="font-bold text-slate-950 dark:text-slate-100">Shared capacity</h3>
+            <p className="mt-2 leading-7 text-slate-600 dark:text-slate-300">
               The shipment uses part of the truck rather than requiring its
               full capacity by itself.
             </p>
           </Card>
           <Card>
-            <h3 className="font-bold text-slate-950">Checked for suitability</h3>
-            <p className="mt-2 leading-7 text-slate-600">
+            <h3 className="font-bold text-slate-950 dark:text-slate-100">Checked for suitability</h3>
+            <p className="mt-2 leading-7 text-slate-600 dark:text-slate-300">
               Compatibility, handling, and the requested pickup and delivery
               points are reviewed before confirming an arrangement.
             </p>
           </Card>
           <Card>
-            <h3 className="font-bold text-slate-950">No assumed savings</h3>
-            <p className="mt-2 leading-7 text-slate-600">
+            <h3 className="font-bold text-slate-950 dark:text-slate-100">No assumed savings</h3>
+            <p className="mt-2 leading-7 text-slate-600 dark:text-slate-300">
               Shared transport does not guarantee a lower price. Request a
               quote based on your actual shipment.
             </p>
           </Card>
         </div>
       </Section>
-      <Section className="bg-slate-50" title="Shipments you can ask us about">
+      <Section className="bg-slate-50 dark:bg-slate-900" title="Shipments you can ask us about">
         <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
           {[
             "A few packaged cartons for a business delivery",
@@ -88,11 +88,11 @@ export default function PartLoadPage() {
             "A consignment where you want to compare available options",
           ].map((example) => (
             <Card key={example}>
-              <p className="leading-7 text-slate-700">{example}</p>
+              <p className="leading-7 text-slate-700 dark:text-slate-300">{example}</p>
             </Card>
           ))}
         </div>
-        <p className="mt-5 max-w-3xl leading-7 text-slate-600">
+        <p className="mt-5 max-w-3xl leading-7 text-slate-600 dark:text-slate-300">
           These are examples for discussion, not a guarantee of acceptance.
           Shipment size, goods type, packaging, handling, and availability all
           matter.
@@ -108,12 +108,12 @@ export default function PartLoadPage() {
           ].map((detail, index) => (
             <li
               key={detail}
-              className="flex gap-4 rounded-xl border border-slate-200 p-5"
+              className="flex gap-4 rounded-xl border border-slate-200 p-5 dark:border-slate-800"
             >
-              <span className="font-extrabold text-amber-700">
+              <span className="font-extrabold text-amber-700 dark:text-amber-300">
                 0{index + 1}
               </span>
-              <span className="leading-7 text-slate-700">{detail}</span>
+              <span className="leading-7 text-slate-700 dark:text-slate-300">{detail}</span>
             </li>
           ))}
         </ol>
@@ -123,7 +123,7 @@ export default function PartLoadPage() {
         </div>
       </Section>
       <Section
-        className="bg-slate-50"
+        className="bg-slate-50 dark:bg-slate-900"
         title="Locations for part load enquiries"
         description="Ask about movements involving these locations. Availability for the exact route must be confirmed."
       >
@@ -132,7 +132,7 @@ export default function PartLoadPage() {
             <Link
               key={location.slug}
               href={getLocationHref(location)}
-              className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:border-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:border-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-200 dark:focus-visible:outline-amber-300"
             >
               {location.name}
             </Link>

@@ -15,7 +15,7 @@ export function CtaBanner({
   className = "",
 }: CtaBannerProps) {
   return (
-    <section className={`bg-slate-950 py-12 text-white sm:py-16 ${className}`}>
+    <section className={`bg-slate-900 py-12 text-white sm:py-16 ${className}`}>
       <Reveal>
         <Container className="flex flex-col items-start justify-between gap-7 md:flex-row md:items-center">
           <div className="max-w-2xl">

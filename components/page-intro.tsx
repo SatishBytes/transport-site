@@ -30,13 +30,13 @@ export function PageIntro({
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
-      <section className="border-b border-slate-200 bg-slate-50 py-10 sm:py-14">
+      <section className="border-b border-slate-200 bg-slate-50 py-10 dark:border-slate-800 dark:bg-slate-900 sm:py-14">
         <Container>
           <Breadcrumbs items={breadcrumbs} />
-          <h1 className="mt-6 max-w-4xl text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+          <h1 className="mt-6 max-w-4xl text-4xl font-extrabold tracking-tight text-slate-950 dark:text-slate-100 sm:text-5xl">
             {title}
           </h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
             {description}
           </p>
         </Container>

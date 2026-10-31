@@ -155,18 +155,18 @@ export default function Home() {
         <div className="reveal-stagger grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {trustHighlights.map(({ title, description, icon: Icon }) => (
             <Card key={title}>
-              <span className="inline-flex size-12 items-center justify-center rounded-xl bg-amber-100 text-amber-800">
+              <span className="inline-flex size-12 items-center justify-center rounded-xl bg-amber-100 text-amber-800 dark:bg-amber-300 dark:text-amber-950">
                 <Icon aria-hidden="true" size={23} />
               </span>
-              <h3 className="mt-5 text-xl font-bold text-slate-950">{title}</h3>
-              <p className="mt-3 leading-7 text-slate-600">{description}</p>
+              <h3 className="mt-5 text-xl font-bold text-slate-950 dark:text-slate-100">{title}</h3>
+              <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">{description}</p>
             </Card>
           ))}
         </div>
       </Section>
 
       <Section
-        className="bg-slate-50"
+        className="bg-slate-50 dark:bg-slate-900"
         id="our-services"
         eyebrow="Transport options"
         title="Our Services"
@@ -175,10 +175,10 @@ export default function Home() {
         <div className="reveal-stagger grid gap-5 md:grid-cols-3">
           {homeServices.map((service) => (
             <Card key={service.slug} className="flex flex-col">
-              <h3 className="text-xl font-bold text-slate-950">
+              <h3 className="text-xl font-bold text-slate-950 dark:text-slate-100">
                 {service.title}
               </h3>
-              <p className="mt-3 flex-1 leading-7 text-slate-600">
+              <p className="mt-3 flex-1 leading-7 text-slate-600 dark:text-slate-300">
                 {service.summary}
               </p>
               <Link
@@ -187,7 +187,7 @@ export default function Home() {
                     ? "/part-load-transport"
                     : `/services#${service.slug}`
                 }
-                className="group mt-5 inline-flex w-fit items-center gap-2 font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
+                className="group mt-5 inline-flex w-fit items-center gap-2 font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
               >
                 Learn about {service.title}
                 <ArrowRight
@@ -211,17 +211,17 @@ export default function Home() {
             <Link
               key={location.slug}
               href={getLocationHref(location)}
-              className="group rounded-xl border border-slate-200 bg-white p-5 transition-transform duration-300 hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="group rounded-xl border border-slate-200 bg-white p-5 transition-transform duration-300 hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:focus-visible:outline-amber-300"
             >
-              <span className="flex items-center justify-between gap-3 font-bold text-slate-950">
+              <span className="flex items-center justify-between gap-3 font-bold text-slate-950 dark:text-slate-100">
                 {location.name}
                 <ArrowRight
                   aria-hidden="true"
                   size={18}
-                  className="text-amber-700 transition-transform duration-200 group-hover:translate-x-1"
+                  className="text-amber-700 transition-transform duration-200 group-hover:translate-x-1 dark:text-amber-300"
                 />
               </span>
-              <span className="mt-2 block text-sm leading-6 text-slate-600">
+              <span className="mt-2 block text-sm leading-6 text-slate-600 dark:text-slate-300">
                 {location.keyword}
               </span>
             </Link>
@@ -230,7 +230,7 @@ export default function Home() {
         <p className="mt-6">
           <Link
             href="/routes"
-            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
           >
             View location and route enquiries
           </Link>
@@ -238,7 +238,7 @@ export default function Home() {
       </Section>
 
       <Section
-        className="bg-slate-50"
+        className="bg-slate-50 dark:bg-slate-900"
         eyebrow="From enquiry to coordination"
         title="How It Works"
         description="A straightforward process begins with accurate shipment information."
@@ -246,13 +246,13 @@ export default function Home() {
         <div className="reveal-stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step) => (
             <Card key={step.number}>
-              <p className="text-sm font-extrabold tracking-widest text-amber-700">
+              <p className="text-sm font-extrabold tracking-widest text-amber-700 dark:text-amber-300">
                 {step.number}
               </p>
-              <h3 className="mt-4 text-lg font-bold text-slate-950">
+              <h3 className="mt-4 text-lg font-bold text-slate-950 dark:text-slate-100">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                 {step.description}
               </p>
             </Card>
@@ -267,20 +267,20 @@ export default function Home() {
       >
         <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
           {whyChooseUs.map((reason) => (
-            <div key={reason} className="flex gap-3 rounded-xl bg-amber-50 p-5">
+            <div key={reason} className="flex gap-3 rounded-xl bg-amber-50 p-5 dark:bg-amber-950">
               <Route
                 aria-hidden="true"
-                className="mt-1 shrink-0 text-amber-800"
+                className="mt-1 shrink-0 text-amber-800 dark:text-amber-300"
                 size={19}
               />
-              <p className="leading-7 text-slate-800">{reason}</p>
+              <p className="leading-7 text-slate-800 dark:text-amber-100">{reason}</p>
             </div>
           ))}
         </div>
       </Section>
 
       <Section
-        className="bg-slate-50"
+        className="bg-slate-50 dark:bg-slate-900"
         eyebrow="Frequently asked questions"
         title="Goods transport questions"
         description="A few details about part load transport and making an enquiry."
@@ -289,7 +289,7 @@ export default function Home() {
         <p className="mt-5">
           <Link
             href="/faq"
-            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
           >
             Read all frequently asked questions
           </Link>

@@ -56,10 +56,10 @@ export default function ServicesPage() {
         <div className="reveal-stagger grid gap-5 md:grid-cols-2">
           {visibleServices.map((service) => (
             <Card id={service.slug} key={service.slug} className="flex flex-col">
-              <h2 className="text-xl font-bold text-slate-950">
+              <h2 className="text-xl font-bold text-slate-950 dark:text-slate-100">
                 {service.title}
               </h2>
-              <p className="mt-3 flex-1 leading-7 text-slate-600">
+              <p className="mt-3 flex-1 leading-7 text-slate-600 dark:text-slate-300">
                 {service.summary}
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
@@ -77,15 +77,15 @@ export default function ServicesPage() {
           ))}
         </div>
       </Section>
-      <Section className="bg-slate-50" title="Locations to enquire about">
-        <p className="max-w-3xl leading-7 text-slate-600">
+      <Section className="bg-slate-50 dark:bg-slate-900" title="Locations to enquire about">
+        <p className="max-w-3xl leading-7 text-slate-600 dark:text-slate-300">
           We welcome enquiries involving Mumbai, Thane, Vadodara, Ahmedabad,
           Uttar Pradesh, and Rajasthan. The business must confirm each specific
           pickup and delivery movement.
         </p>
         <Link
           href="/routes"
-          className="mt-5 inline-flex rounded-sm font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
+          className="mt-5 inline-flex rounded-sm font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
         >
           Browse locations and route enquiries
         </Link>

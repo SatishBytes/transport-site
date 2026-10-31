@@ -41,11 +41,11 @@ export function FAQItem({ item }: FAQItemProps) {
   return (
     <details
       ref={detailsRef}
-      className="group border-b border-slate-200 p-5 last:border-b-0 sm:p-6"
+      className="group border-b border-slate-200 p-5 last:border-b-0 dark:border-slate-800 sm:p-6"
     >
       <summary
         onClick={handleSummaryClick}
-        className="cursor-pointer list-none rounded-sm pr-8 text-left text-base font-bold text-slate-950 marker:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 [&::-webkit-details-marker]:hidden"
+        className="cursor-pointer list-none rounded-sm pr-8 text-left text-base font-bold text-slate-950 marker:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300 [&::-webkit-details-marker]:hidden"
       >
         <span className="relative block">
           <span role="heading" aria-level={3} className="pr-8 font-bold">
@@ -53,13 +53,13 @@ export function FAQItem({ item }: FAQItemProps) {
           </span>
           <span
             aria-hidden="true"
-            className="absolute right-0 top-0 text-xl leading-6 text-amber-700 transition-transform duration-200 group-open:rotate-45"
+            className="absolute right-0 top-0 text-xl leading-6 text-amber-700 transition-transform duration-200 group-open:rotate-45 dark:text-amber-300"
           >
             +
           </span>
         </span>
       </summary>
-      <p className="faq-answer mt-4 max-w-3xl leading-7 text-slate-600">
+      <p className="faq-answer mt-4 max-w-3xl leading-7 text-slate-600 dark:text-slate-300">
         {item.answer}
       </p>
     </details>

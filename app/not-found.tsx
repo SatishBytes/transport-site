@@ -16,13 +16,13 @@ export default function NotFound() {
   return (
     <main id="main-content" className="flex flex-1 items-center py-20">
       <Container className="max-w-3xl text-center">
-        <p className="font-bold uppercase tracking-[0.16em] text-amber-700">
+        <p className="font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300">
           Error 404
         </p>
-        <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+        <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 dark:text-slate-100 sm:text-5xl">
           We couldn&apos;t find that page
         </h1>
-        <p className="mx-auto mt-5 max-w-xl leading-7 text-slate-600">
+        <p className="mx-auto mt-5 max-w-xl leading-7 text-slate-600 dark:text-slate-300">
           The address may be incorrect or the page may have moved. Browse the
           transport services or return to the homepage.
         </p>
@@ -30,7 +30,7 @@ export default function NotFound() {
           <Button href="/">Back to Home</Button>
           <Link
             href="/services"
-            className="inline-flex min-h-12 items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-900 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+            className="inline-flex min-h-12 items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-900 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800 dark:focus-visible:outline-amber-300"
           >
             Explore Services
           </Link>

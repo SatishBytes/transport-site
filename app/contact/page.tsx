@@ -49,53 +49,53 @@ export default function ContactPage() {
       >
         <div className="reveal-stagger grid gap-5 md:grid-cols-2">
           <Card>
-            <Phone aria-hidden="true" className="text-amber-700" size={22} />
-            <h2 className="mt-4 font-bold text-slate-950">Phone number</h2>
+            <Phone aria-hidden="true" className="text-amber-700 dark:text-amber-300" size={22} />
+            <h2 className="mt-4 font-bold text-slate-950 dark:text-slate-100">Phone number</h2>
             {phoneHref ? (
               <a
                 href={phoneHref}
-                className="mt-2 inline-block underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                className="mt-2 inline-block underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:focus-visible:outline-amber-300"
               >
                 {siteConfig.phone}
               </a>
             ) : (
-              <p className="mt-2 text-slate-700">{siteConfig.phone}</p>
+              <p className="mt-2 text-slate-700 dark:text-slate-300">{siteConfig.phone}</p>
             )}
           </Card>
           <Card>
-            <Mail aria-hidden="true" className="text-amber-700" size={22} />
-            <h2 className="mt-4 font-bold text-slate-950">Email address</h2>
+            <Mail aria-hidden="true" className="text-amber-700 dark:text-amber-300" size={22} />
+            <h2 className="mt-4 font-bold text-slate-950 dark:text-slate-100">Email address</h2>
             {emailHref ? (
               <a
                 href={emailHref}
-                className="mt-2 inline-block break-all underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                className="mt-2 inline-block break-all underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:focus-visible:outline-amber-300"
               >
                 {siteConfig.email}
               </a>
             ) : (
-              <p className="mt-2 break-all text-slate-700">{siteConfig.email}</p>
+              <p className="mt-2 break-all text-slate-700 dark:text-slate-300">{siteConfig.email}</p>
             )}
           </Card>
           <Card>
-            <MapPin aria-hidden="true" className="text-amber-700" size={22} />
-            <h2 className="mt-4 font-bold text-slate-950">Business address</h2>
-            <address className="mt-2 leading-7 not-italic text-slate-700">
+            <MapPin aria-hidden="true" className="text-amber-700 dark:text-amber-300" size={22} />
+            <h2 className="mt-4 font-bold text-slate-950 dark:text-slate-100">Business address</h2>
+            <address className="mt-2 leading-7 not-italic text-slate-700 dark:text-slate-300">
               {siteConfig.address}
             </address>
           </Card>
           <Card>
-            <h2 className="font-bold text-slate-950">WhatsApp</h2>
-            <p className="mt-2 mb-4 leading-7 text-slate-600">
+            <h2 className="font-bold text-slate-950 dark:text-slate-100">WhatsApp</h2>
+            <p className="mt-2 mb-4 leading-7 text-slate-600 dark:text-slate-300">
               Send a transport enquiry directly through WhatsApp.
             </p>
             <WhatsAppButton />
           </Card>
         </div>
-        <p className="mt-6 text-sm leading-6 text-slate-600">
+        <p className="mt-6 text-sm leading-6 text-slate-600 dark:text-slate-300">
           Prefer to start online?{" "}
           <Link
             href="/get-a-quote"
-            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
           >
             Prepare a transport enquiry
           </Link>
@@ -104,7 +104,7 @@ export default function ContactPage() {
       </Section>
       {mapHref && (
         <Section
-          className="bg-slate-50"
+          className="bg-slate-50 dark:bg-slate-900"
           title="Find our business address"
           description={siteConfig.address}
         >

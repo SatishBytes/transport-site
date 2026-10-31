@@ -44,14 +44,14 @@ export function LocationPage({ location }: LocationPageProps) {
                 className="mt-1 shrink-0 text-amber-700 dark:text-amber-300"
                 size={20}
               />
-              <p className="leading-7 text-slate-700 dark:text-slate-300">{example}</p>
+              <p className="leading-7 text-foreground">{example}</p>
             </Card>
           ))}
         </div>
       </Section>
 
       <Section
-        className="bg-slate-50 dark:bg-slate-900"
+        className="section-muted"
         eyebrow="Transport options"
         title={`Discuss a ${location.name} goods movement`}
         description="Tell us the origin and destination, shipment type, approximate weight and dimensions, and preferred pickup date. We will review the information with you; availability and arrangements must be confirmed before booking."
@@ -74,15 +74,16 @@ export function LocationPage({ location }: LocationPageProps) {
       </Section>
 
       {relatedLocations.length > 0 && (
-        <Section className="bg-slate-50 dark:bg-slate-900" title="Explore other locations">
+        <Section className="section-muted" title="Explore other locations">
           <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
             {relatedLocations.map((related) => (
               <Link
                 key={related.slug}
                 href={getLocationHref(related)}
-                className="rounded-xl border border-slate-200 bg-white p-5 font-bold text-slate-900 transition-transform duration-300 hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus-visible:outline-amber-300"
+                className="location-card surface-card flex items-center justify-between gap-3 p-5 font-bold text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               >
                 {related.name} goods transport
+                <ArrowRight aria-hidden="true" size={18} className="shrink-0 text-accent" />
               </Link>
             ))}
           </div>
@@ -90,11 +91,11 @@ export function LocationPage({ location }: LocationPageProps) {
       )}
 
       <Container className="pb-16">
-        <p className="text-sm text-slate-600 dark:text-slate-300">
+        <p className="text-sm text-muted">
           Need a different destination?{" "}
           <Link
             href="/routes"
-            className="font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 dark:text-slate-100"
+            className="font-bold text-foreground underline decoration-accent underline-offset-4"
           >
             View locations and route enquiries
           </Link>

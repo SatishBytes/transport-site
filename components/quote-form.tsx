@@ -285,7 +285,7 @@ export function QuoteForm() {
       "aria-invalid": Boolean(error),
       "aria-describedby": error ? `${name}-error` : undefined,
       className:
-        "mt-2 min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 text-slate-950 outline-none transition-transform duration-200 focus:scale-[1.005] focus:border-slate-900 focus:ring-2 focus:ring-amber-400 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-amber-300",
+        "quote-field mt-2 min-h-12 w-full rounded-xl px-4 outline-none",
     } as const;
   }
 
@@ -318,7 +318,7 @@ export function QuoteForm() {
 
   return (
     <form
-      className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8"
+      className="quote-form-shell surface-card space-y-6 p-5 sm:p-8"
       onSubmit={handleSubmit}
       noValidate
     >
@@ -466,14 +466,14 @@ export function QuoteForm() {
             aria-describedby={
               errors.additionalDetails ? "additionalDetails-error" : undefined
             }
-            className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition-transform duration-200 focus:scale-[1.005] focus:border-slate-900 focus:ring-2 focus:ring-amber-400 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-amber-300"
+            className="quote-field mt-2 w-full rounded-xl px-4 py-3 outline-none"
           />
           {renderError("additionalDetails")}
         </div>
       </div>
 
       <div className="flex flex-col items-start gap-4">
-        <Button type="submit" disabled={isCoolingDown}>
+        <Button id="quote-submit" type="submit" disabled={isCoolingDown}>
           {isCoolingDown ? "Please wait..." : "Prepare WhatsApp enquiry"}
         </Button>
         {feedback && (

@@ -12,7 +12,7 @@ export function Footer() {
   );
 
   return (
-    <footer className="bg-slate-950 text-slate-300">
+    <footer id="site-footer" className="bg-navy text-slate-200">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 lg:py-16">
         <div className="sm:col-span-2 lg:col-span-1">
           <Link

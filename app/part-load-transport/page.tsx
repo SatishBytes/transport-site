@@ -79,7 +79,7 @@ export default function PartLoadPage() {
           </Card>
         </div>
       </Section>
-      <Section className="bg-slate-50 dark:bg-slate-900" title="Shipments you can ask us about">
+      <Section className="section-muted" title="Shipments you can ask us about">
         <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
           {[
             "A few packaged cartons for a business delivery",
@@ -123,7 +123,7 @@ export default function PartLoadPage() {
         </div>
       </Section>
       <Section
-        className="bg-slate-50 dark:bg-slate-900"
+        className="section-muted"
         title="Locations for part load enquiries"
         description="Ask about movements involving these locations. Availability for the exact route must be confirmed."
       >

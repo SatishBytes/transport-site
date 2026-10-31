@@ -59,7 +59,7 @@ export default function AboutPage() {
           </Card>
         </div>
       </Section>
-      <Section className="bg-slate-50 dark:bg-slate-900" title="Our transport focus">
+      <Section className="section-muted" title="Our transport focus">
         <div className="max-w-3xl space-y-5 leading-8 text-slate-700 dark:text-slate-300">
           <p>
             Door To door transport arrangements are discussed only after the shipment details have been shared. We avoid making assumptions about a consignment and its handling requirements.

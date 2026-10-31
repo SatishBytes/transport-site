@@ -77,7 +77,7 @@ export default function ServicesPage() {
           ))}
         </div>
       </Section>
-      <Section className="bg-slate-50 dark:bg-slate-900" title="Locations to enquire about">
+      <Section className="section-muted" title="Locations to enquire about">
         <p className="max-w-3xl leading-7 text-slate-600 dark:text-slate-300">
           We welcome enquiries involving Mumbai, Thane, Vadodara, Ahmedabad,
           Uttar Pradesh, and Rajasthan. The business must confirm each specific

@@ -104,7 +104,7 @@ export default function ContactPage() {
       </Section>
       {mapHref && (
         <Section
-          className="bg-slate-50 dark:bg-slate-900"
+          className="section-muted"
           title="Find our business address"
           description={siteConfig.address}
         >

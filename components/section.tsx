@@ -24,19 +24,19 @@ export function Section({
       <Reveal>
         <Container>
           {(eyebrow || title || description) && (
-            <div className="mb-10 max-w-2xl">
+            <div className="mb-10 max-w-3xl sm:mb-12">
               {eyebrow && (
-                <p className="mb-3 text-sm font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
+                <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.18em] text-accent sm:text-sm">
                   {eyebrow}
                 </p>
               )}
               {title && (
-                <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-slate-100 sm:text-4xl">
+                <h2 className="gradient-heading text-3xl font-extrabold leading-tight tracking-[-0.035em] sm:text-4xl lg:text-[2.75rem]">
                   {title}
                 </h2>
               )}
               {description && (
-                <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
+                <p className="mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
                   {description}
                 </p>
               )}

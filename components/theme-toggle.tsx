@@ -37,7 +37,7 @@ export function ThemeToggle() {
   }
 
   const className =
-    "inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-white dark:focus-visible:outline-amber-300";
+    "inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-line bg-surface text-foreground hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
   if (isDark === null) {
     return <span aria-hidden="true" className={className} />;

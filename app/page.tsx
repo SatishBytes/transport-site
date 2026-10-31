@@ -4,9 +4,12 @@ import {
   ArrowRight,
   Award,
   Boxes,
+  ClipboardCheck,
   Headset,
+  MapPinned,
   Route,
   ShieldCheck,
+  Truck,
 } from "lucide-react";
 import { Button } from "@/components/button";
 import { Card } from "@/components/card";
@@ -90,6 +93,9 @@ const whyChooseUs = [
   "Service availability is checked for the specific places and dates in your enquiry.",
 ];
 
+const serviceIcons = [Boxes, Truck, Route];
+const whyChooseIcons = [ClipboardCheck, Boxes, Award, MapPinned, Headset];
+
 const homeFaqs = faqs.slice(0, 2);
 const homeServices = services.filter(
   (service) => !service.optional || siteConfig.showFullTruckLoadService,
@@ -110,16 +116,18 @@ export default function Home() {
     <main id="main-content" className="flex-1">
       <JsonLd data={organizationStructuredData} />
 
-      <section className="overflow-hidden bg-slate-950 text-white">
+      <section className="hero-mesh overflow-hidden text-white">
         <Container className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:py-20">
           <div className="max-w-2xl">
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.16em] text-amber-300">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.2em] text-amber-300 sm:text-sm">
               {siteConfig.tagline}
             </p>
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Reliable Goods &amp; Part Load Transport Services
+            <h1 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+              <span className="text-white">Reliable Goods &amp; </span>
+              <span className="hero-heading-accent">Part Load Transport</span>
+              <span className="text-white"> Services</span>
             </h1>
-            <p className="hero-support mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            <p className="hero-support mt-6 max-w-xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
               With {siteConfig.experienceLabel.toLowerCase()} of experience in
               goods transport, we help businesses discuss shipment details,
               part load transport and other road transport options.
@@ -131,7 +139,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative aspect-[1.5/1] overflow-hidden rounded-2xl border border-white/10 bg-slate-800 shadow-2xl">
+          <div className="relative aspect-[1.5/1] overflow-hidden rounded-3xl border border-white/15 bg-slate-800 shadow-[0_32px_70px_-35px_rgba(0,0,0,0.8)]">
             <Image
               src="/goods-transport-truck.svg"
               alt="Goods transport truck carrying a freight shipment on the road"
@@ -140,9 +148,32 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
-            <span className="hero-badge absolute left-4 top-4 rounded-full border border-white/20 bg-slate-950/85 px-3 py-1.5 text-xs font-bold text-amber-200 shadow-lg">
+            <span className="hero-badge absolute left-4 top-4 rounded-full border border-white/25 bg-slate-950/90 px-3 py-1.5 text-xs font-bold text-amber-200 shadow-lg">
               {siteConfig.experienceLabel} in Goods Transport
             </span>
+            <div className="route-glass absolute bottom-3 left-3 right-3 rounded-2xl p-3 text-white sm:bottom-4 sm:left-auto sm:right-4 sm:w-64 sm:p-4">
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-slate-200">
+                Shipment route
+              </p>
+              <div className="mt-3 flex items-center gap-2">
+                <div className="min-w-0">
+                  <span className="block size-2.5 rounded-full bg-amber-300 ring-4 ring-amber-300/15" />
+                  <span className="mt-2 block text-xs font-semibold">Pickup</span>
+                </div>
+                <div className="relative mx-1 flex-1">
+                  <span className="block border-t-2 border-dotted border-amber-200/80" />
+                  <Truck
+                    aria-hidden="true"
+                    size={19}
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-amber-200"
+                  />
+                </div>
+                <div className="min-w-0 text-right">
+                  <span className="ml-auto block size-2.5 rounded-full bg-amber-300 ring-4 ring-amber-300/15" />
+                  <span className="mt-2 block text-xs font-semibold">Delivery</span>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -155,49 +186,58 @@ export default function Home() {
         <div className="reveal-stagger grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {trustHighlights.map(({ title, description, icon: Icon }) => (
             <Card key={title}>
-              <span className="inline-flex size-12 items-center justify-center rounded-xl bg-amber-100 text-amber-800 dark:bg-amber-300 dark:text-amber-950">
+              <span className="accent-icon inline-flex size-12 items-center justify-center rounded-xl">
                 <Icon aria-hidden="true" size={23} />
               </span>
-              <h3 className="mt-5 text-xl font-bold text-slate-950 dark:text-slate-100">{title}</h3>
-              <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">{description}</p>
+              <h3 className="mt-5 text-xl font-bold text-foreground">{title}</h3>
+              <p className="mt-3 leading-7 text-muted">{description}</p>
             </Card>
           ))}
         </div>
       </Section>
 
       <Section
-        className="bg-slate-50 dark:bg-slate-900"
+        className="section-muted"
         id="our-services"
         eyebrow="Transport options"
         title="Our Services"
         description="Choose an option to discuss, then share your shipment information for an availability check."
       >
-        <div className="reveal-stagger grid gap-5 md:grid-cols-3">
-          {homeServices.map((service) => (
-            <Card key={service.slug} className="flex flex-col">
-              <h3 className="text-xl font-bold text-slate-950 dark:text-slate-100">
-                {service.title}
-              </h3>
-              <p className="mt-3 flex-1 leading-7 text-slate-600 dark:text-slate-300">
-                {service.summary}
-              </p>
-              <Link
-                href={
-                  service.slug === "part-load-transport"
-                    ? "/part-load-transport"
-                    : `/services#${service.slug}`
-                }
-                className="group mt-5 inline-flex w-fit items-center gap-2 font-bold text-slate-900 underline decoration-amber-500 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 dark:text-slate-100 dark:focus-visible:outline-amber-300"
+        <div className="reveal-stagger grid gap-5 sm:grid-cols-2 lg:auto-rows-fr">
+          {homeServices.map((service, index) => {
+            const Icon = serviceIcons[index % serviceIcons.length];
+            return (
+              <Card
+                key={service.slug}
+                className={`service-card flex flex-col ${index === 0 ? "lg:row-span-2 lg:min-h-80" : ""}`}
               >
-                Learn about {service.title}
-                <ArrowRight
-                  aria-hidden="true"
-                  size={17}
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                />
-              </Link>
-            </Card>
-          ))}
+                <span className="accent-icon inline-flex size-12 items-center justify-center rounded-xl">
+                  <Icon aria-hidden="true" size={23} />
+                </span>
+                <h3 className="mt-5 text-xl font-bold text-foreground">
+                  {service.title}
+                </h3>
+                <p className="mt-3 flex-1 leading-7 text-muted">
+                  {service.summary}
+                </p>
+                <Link
+                  href={
+                    service.slug === "part-load-transport"
+                      ? "/part-load-transport"
+                      : `/services#${service.slug}`
+                  }
+                  className="group mt-5 inline-flex w-fit items-center gap-2 font-bold text-foreground underline decoration-accent underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  Learn about {service.title}
+                  <ArrowRight
+                    aria-hidden="true"
+                    size={17}
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  />
+                </Link>
+              </Card>
+            );
+          })}
         </div>
       </Section>
 
@@ -211,17 +251,19 @@ export default function Home() {
             <Link
               key={location.slug}
               href={getLocationHref(location)}
-              className="group rounded-xl border border-slate-200 bg-white p-5 transition-transform duration-300 hover:-translate-y-0.5 hover:border-amber-500 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:focus-visible:outline-amber-300"
+              className="location-card group surface-card block rounded-2xl p-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
-              <span className="flex items-center justify-between gap-3 font-bold text-slate-950 dark:text-slate-100">
-                {location.name}
+              <span className="flex items-center justify-between gap-3">
+                <span className="text-2xl font-extrabold tracking-tight text-foreground">
+                  {location.name}
+                </span>
                 <ArrowRight
                   aria-hidden="true"
-                  size={18}
-                  className="text-amber-700 transition-transform duration-200 group-hover:translate-x-1 dark:text-amber-300"
+                  size={20}
+                  className="shrink-0 text-accent transition-transform duration-200 group-hover:translate-x-1"
                 />
               </span>
-              <span className="mt-2 block text-sm leading-6 text-slate-600 dark:text-slate-300">
+              <span className="mt-3 block text-sm leading-6 text-muted">
                 {location.keyword}
               </span>
             </Link>
@@ -238,26 +280,26 @@ export default function Home() {
       </Section>
 
       <Section
-        className="bg-slate-50 dark:bg-slate-900"
+        className="section-muted"
         eyebrow="From enquiry to coordination"
         title="How It Works"
         description="A straightforward process begins with accurate shipment information."
       >
-        <div className="reveal-stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="process-stepper reveal-stagger grid gap-5 lg:grid-cols-4">
           {processSteps.map((step) => (
-            <Card key={step.number}>
-              <p className="text-sm font-extrabold tracking-widest text-amber-700 dark:text-amber-300">
+            <li className="process-step" key={step.number}>
+              <span className="process-step-number" aria-hidden="true">
                 {step.number}
-              </p>
-              <h3 className="mt-4 text-lg font-bold text-slate-950 dark:text-slate-100">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                {step.description}
-              </p>
-            </Card>
+              </span>
+              <Card className="h-full">
+                <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  {step.description}
+                </p>
+              </Card>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       <Section
@@ -265,22 +307,23 @@ export default function Home() {
         title={`Why Choose ${siteConfig.companyName}`}
         description="We focus on practical information and clear communication rather than unverified promises."
       >
-        <div className="reveal-stagger grid gap-4 sm:grid-cols-2">
-          {whyChooseUs.map((reason) => (
-            <div key={reason} className="flex gap-3 rounded-xl bg-amber-50 p-5 dark:bg-amber-950">
-              <Route
-                aria-hidden="true"
-                className="mt-1 shrink-0 text-amber-800 dark:text-amber-300"
-                size={19}
-              />
-              <p className="leading-7 text-slate-800 dark:text-amber-100">{reason}</p>
-            </div>
-          ))}
+        <div className="reveal-stagger grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {whyChooseUs.map((reason, index) => {
+            const Icon = whyChooseIcons[index % whyChooseIcons.length];
+            return (
+              <Card key={reason} className="flex gap-4">
+                <span className="accent-icon inline-flex size-11 shrink-0 items-center justify-center rounded-xl">
+                  <Icon aria-hidden="true" size={20} />
+                </span>
+                <p className="leading-7 text-foreground">{reason}</p>
+              </Card>
+            );
+          })}
         </div>
       </Section>
 
       <Section
-        className="bg-slate-50 dark:bg-slate-900"
+        className="section-muted"
         eyebrow="Frequently asked questions"
         title="Goods transport questions"
         description="A few details about part load transport and making an enquiry."

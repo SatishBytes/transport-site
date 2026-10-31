@@ -327,6 +327,37 @@ body {
   box-shadow: var(--card-shadow);
 }
 
+.fleet-vehicle-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.fleet-vehicle-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 0%,
+    var(--accent-glow),
+    transparent 68%
+  );
+  content: "";
+  opacity: 0;
+  transition: opacity 220ms ease-out;
+}
+
+.fleet-vehicle-card:hover,
+.fleet-vehicle-card:focus-within {
+  border-color: var(--accent);
+}
+
+.fleet-vehicle-card:hover::before,
+.fleet-vehicle-card:focus-within::before {
+  opacity: 1;
+}
+
 .navbar-glass {
   border-color: transparent;
   background: color-mix(in srgb, var(--surface) 90%, transparent);
@@ -835,12 +866,16 @@ body {
 
 .quote-field:focus-visible {
   border-color: var(--accent-strong);
-  outline: 3px solid rgb(245 158 11 / 0.35);
+  outline: 3px solid var(--accent-strong);
   outline-offset: 1px;
 }
 
 .quote-field[aria-invalid="true"]:focus-visible {
-  outline-color: rgb(220 38 38 / 0.35);
+  outline-color: #b42318;
+}
+
+.dark .quote-field[aria-invalid="true"]:focus-visible {
+  outline-color: #f87171;
 }
 
 .quote-form-shell {
@@ -1079,6 +1114,10 @@ details.is-closing > .faq-answer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .fleet-vehicle-card:hover {
+    transform: none;
+  }
+
   .button-primary::after {
     display: none;
   }

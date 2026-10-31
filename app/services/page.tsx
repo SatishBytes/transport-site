@@ -9,6 +9,8 @@ import { services } from "@/data/services";
 import { JsonLd } from "@/components/json-ld";
 import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
+import { VehicleFleet } from "@/components/vehicle-fleet";
+import { BodyTypeOptions } from "@/components/body-type-options";
 
 export const metadata = createPageMetadata({
   title: `Goods Transport Services | ${siteConfig.companyName}`,
@@ -41,7 +43,7 @@ export default function ServicesPage() {
       <JsonLd data={serviceSchema} />
       <PageIntro
         title="Goods Transport Services"
-        description="Explore part load transport, goods transportation, and truck transport services for business consignments. Share your route and shipment details to discuss suitable road transport options and confirm availability."
+        description="Explore part load transport, goods transportation, and truck transport services for business consignments. Vehicle options include 14 feet, 16 feet, 17 feet and 20 feet vehicles for goods transport. Open body and closed body vehicles for goods transport can also be discussed. Share your route and shipment details to discuss suitable road transport options and confirm availability."
         path="/services"
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -53,13 +55,13 @@ export default function ServicesPage() {
         title="Choose a service to discuss"
         description="Service suitability depends on your goods, locations, handling needs, and confirmed availability."
       >
-        <div className="reveal-stagger grid gap-5 md:grid-cols-2">
+        <div className="reveal-stagger grid items-start gap-5 md:grid-cols-2">
           {visibleServices.map((service) => (
             <Card id={service.slug} key={service.slug} className="flex flex-col">
               <h2 className="text-xl font-bold text-slate-950 dark:text-slate-100">
                 {service.title}
               </h2>
-              <p className="mt-3 flex-1 leading-7 text-slate-600 dark:text-slate-300">
+              <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">
                 {service.summary}
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
@@ -76,7 +78,9 @@ export default function ServicesPage() {
             </Card>
           ))}
         </div>
+        <BodyTypeOptions />
       </Section>
+      <VehicleFleet />
       <Section className="section-muted" title="Locations to enquire about">
         <p className="max-w-3xl leading-7 text-slate-600 dark:text-slate-300">
           We welcome enquiries involving Mumbai, Thane, Vadodara, Ahmedabad,

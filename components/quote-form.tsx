@@ -8,6 +8,8 @@ import {
   type FormEvent,
 } from "react";
 import { getWhatsAppHref, siteConfig } from "@/lib/site-config";
+import { bodyTypes } from "@/data/body-types";
+import { vehicles } from "@/data/vehicles";
 import { Button } from "./button";
 
 const requiredFields = [
@@ -22,7 +24,11 @@ const requiredFields = [
   "pickupDate",
 ] as const;
 
-const optionalFields = ["additionalDetails"] as const;
+const optionalFields = [
+  "additionalDetails",
+  "preferredVehicleSize",
+  "preferredBodyType",
+] as const;
 const allTextFields = [...requiredFields, ...optionalFields] as const;
 type QuoteField = (typeof allTextFields)[number];
 type FieldErrors = Partial<Record<QuoteField, string>>;
@@ -39,6 +45,8 @@ const fieldLimits: Record<QuoteField, number> = {
   approximateWeight: 50,
   pickupDate: 10,
   additionalDetails: 1000,
+  preferredVehicleSize: 16,
+  preferredBodyType: 16,
 };
 
 const fieldLabels: Record<QuoteField, string> = {
@@ -52,6 +60,8 @@ const fieldLabels: Record<QuoteField, string> = {
   approximateWeight: "Approximate weight",
   pickupDate: "Preferred pickup date",
   additionalDetails: "Additional details",
+  preferredVehicleSize: "Preferred vehicle size",
+  preferredBodyType: "Body type",
 };
 
 function normalizePhone(value: string) {
@@ -81,6 +91,8 @@ function getQuoteValues(formData: FormData): QuoteValues {
     approximateWeight: cleanField(formData.get("approximateWeight")),
     pickupDate: cleanField(formData.get("pickupDate")),
     additionalDetails: cleanField(formData.get("additionalDetails")),
+    preferredVehicleSize: cleanField(formData.get("preferredVehicleSize")),
+    preferredBodyType: cleanField(formData.get("preferredBodyType")),
   };
 }
 
@@ -177,6 +189,23 @@ function validateForm(values: QuoteValues): FieldErrors {
     errors.pickupDate = "Enter a valid pickup date.";
   }
 
+  if (
+    values.preferredVehicleSize &&
+    !vehicles.some(
+      (vehicle) =>
+        values.preferredVehicleSize === `${vehicle.sizeFeet} feet`,
+    )
+  ) {
+    errors.preferredVehicleSize = "Choose a listed vehicle size.";
+  }
+
+  if (
+    values.preferredBodyType &&
+    !bodyTypes.some((bodyType) => bodyType.id === values.preferredBodyType)
+  ) {
+    errors.preferredBodyType = "Choose a listed body type.";
+  }
+
   if (values.additionalDetails.length > fieldLimits.additionalDetails) {
     errors.additionalDetails = `Additional details must be ${fieldLimits.additionalDetails} characters or fewer.`;
   }
@@ -208,6 +237,8 @@ function createWhatsAppMessage(values: QuoteValues) {
     `Goods type: ${values.goodsType}`,
     `Approximate weight: ${values.approximateWeight}`,
     `Preferred pickup date: ${values.pickupDate}`,
+    `Preferred vehicle: ${values.preferredVehicleSize || "Not sure"}`,
+    `Body type: ${bodyTypes.find((bodyType) => bodyType.id === values.preferredBodyType)?.label ?? "Not sure"}`,
     `Additional details: ${values.additionalDetails || "Not provided"}`,
   ].join("\n");
 }
@@ -449,6 +480,66 @@ export function QuoteForm() {
           </label>
           <input type="date" {...getFieldProps("pickupDate")} />
           {renderError("pickupDate")}
+        </div>
+        <div className="sm:col-span-2">
+          <label
+            htmlFor="preferredVehicleSize"
+            className="font-semibold text-slate-900 dark:text-slate-100"
+          >
+            Preferred vehicle size{" "}
+            <span className="font-normal text-slate-500 dark:text-slate-400">
+              (optional)
+            </span>
+          </label>
+          <select
+            id="preferredVehicleSize"
+            name="preferredVehicleSize"
+            defaultValue=""
+            aria-invalid={Boolean(errors.preferredVehicleSize)}
+            aria-describedby={
+              errors.preferredVehicleSize
+                ? "preferredVehicleSize-error"
+                : undefined
+            }
+            className="quote-field mt-2 min-h-12 w-full rounded-xl px-4 outline-none"
+          >
+            <option value="">Not sure</option>
+            {vehicles.map((vehicle) => (
+              <option key={vehicle.id} value={`${vehicle.sizeFeet} feet`}>
+                {vehicle.sizeFeet} feet
+              </option>
+            ))}
+          </select>
+          {renderError("preferredVehicleSize")}
+        </div>
+        <div className="sm:col-span-2">
+          <label
+            htmlFor="preferredBodyType"
+            className="font-semibold text-slate-900 dark:text-slate-100"
+          >
+            Body type{" "}
+            <span className="font-normal text-slate-500 dark:text-slate-400">
+              (optional)
+            </span>
+          </label>
+          <select
+            id="preferredBodyType"
+            name="preferredBodyType"
+            defaultValue=""
+            aria-invalid={Boolean(errors.preferredBodyType)}
+            aria-describedby={
+              errors.preferredBodyType ? "preferredBodyType-error" : undefined
+            }
+            className="quote-field mt-2 min-h-12 w-full rounded-xl px-4 outline-none"
+          >
+            <option value="">Not sure</option>
+            {bodyTypes.map((bodyType) => (
+              <option key={bodyType.id} value={bodyType.id}>
+                {bodyType.label}
+              </option>
+            ))}
+          </select>
+          {renderError("preferredBodyType")}
         </div>
         <div className="sm:col-span-2">
           <label

@@ -32,7 +32,8 @@ export function ConversionActions() {
         });
         setIsNearImportantContent(intersectingTargets.size > 0);
       },
-      { rootMargin: "0px 0px -96px 0px" },
+      // Hide actions before the submit control reaches the fixed mobile bar.
+      { rootMargin: "0px 0px -128px 0px" },
     );
 
     importantContent.forEach((element) => observer.observe(element));

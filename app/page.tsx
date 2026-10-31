@@ -21,6 +21,8 @@ import { HeroAmbient } from "@/components/hero-ambient";
 import { InteractiveSurface } from "@/components/interactive-surface";
 import { JsonLd } from "@/components/json-ld";
 import { Section } from "@/components/section";
+import { VehicleFleet } from "@/components/vehicle-fleet";
+import { BodyTypeOptions } from "@/components/body-type-options";
 import { createPageMetadata } from "@/lib/metadata";
 import { locations, getLocationHref } from "@/data/locations";
 import { faqs } from "@/data/faqs";
@@ -212,13 +214,13 @@ export default function Home() {
         title="Our Services"
         description="Choose an option to discuss, then share your shipment information for an availability check."
       >
-        <div className="reveal-stagger grid gap-5 sm:grid-cols-2 lg:auto-rows-fr">
+        <div className="reveal-stagger grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {homeServices.map((service, index) => {
             const Icon = serviceIcons[index % serviceIcons.length];
             return (
               <InteractiveSurface
                 key={service.slug}
-                className={`service-card surface-card p-6 flex flex-col ${index === 0 ? "lg:row-span-2 lg:min-h-80" : ""}`}
+                className="service-card surface-card flex flex-col p-6"
               >
                 <span className="accent-icon inline-flex size-12 items-center justify-center rounded-xl">
                   <Icon aria-hidden="true" size={23} />
@@ -226,7 +228,7 @@ export default function Home() {
                 <h3 className="mt-5 text-xl font-bold text-foreground">
                   {service.title}
                 </h3>
-                <p className="mt-3 flex-1 leading-7 text-muted">
+                <p className="mt-3 leading-7 text-muted">
                   {service.summary}
                 </p>
                 <Link
@@ -248,7 +250,10 @@ export default function Home() {
             );
           })}
         </div>
+        <BodyTypeOptions />
       </Section>
+
+      <VehicleFleet />
 
       <Section
         eyebrow="Where you can enquire"

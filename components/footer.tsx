@@ -69,6 +69,14 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/services#vehicle-sizes"
+                className="rounded-sm hover:text-accent-bright focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-bright"
+              >
+                Vehicle Sizes
+              </Link>
+            </li>
             {locations.map((location) => (
               <li key={location.slug}>
                 <Link
@@ -109,7 +117,7 @@ export function Footer() {
                 className="mt-0.5 shrink-0 text-accent-bright"
                 size={17}
               />
-              <span>{siteConfig.email}</span>
+              <span className="min-w-0 break-words">{siteConfig.email}</span>
             </p>
             <p className="flex items-start gap-3">
               <MapPin

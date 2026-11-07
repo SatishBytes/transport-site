@@ -112,7 +112,7 @@ export default function ContactPage() {
             title={`Map for ${siteConfig.companyName} business address`}
             src={mapHref}
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer"
             className="h-80 w-full rounded-2xl border-0"
           />
         </Section>

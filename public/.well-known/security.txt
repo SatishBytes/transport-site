@@ -1,5 +1,4 @@
-# Replace this contact and canonical URL with the verified security contact and production domain before deployment.
-Contact: mailto:bachanroadcarriers7289@gmail.com
-Expires: 2027-10-26T00:00:00.000Z
-Preferred-Languages: en
-Canonical: https://www.example.com/.well-known/security.txt
+Contact: mailto:satishyadav42571@gmail.com
+Expires: 2027-10-31T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://brc-transport-gamma.vercel.app/.well-known/security.txt

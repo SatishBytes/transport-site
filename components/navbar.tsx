@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Truck, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/navigation";
 import { siteConfig } from "@/lib/site-config";
@@ -48,17 +49,23 @@ export function Navbar() {
           className="flex min-w-0 items-center gap-3 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           onClick={() => setIsMenuOpen(false)}
         >
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-navy text-accent-bright">
-            <Truck aria-hidden="true" size={25} />
-          </span>
-          <span className="min-w-0">
-            <span className="block truncate text-base font-extrabold tracking-tight text-foreground sm:text-lg">
-              {siteConfig.companyName}
-            </span>
-            <span className="hidden text-xs font-medium text-muted sm:block">
-              {siteConfig.tagline}
-            </span>
-          </span>
+          <Image
+            src={siteConfig.logo.lightBg}
+            alt={siteConfig.companyName}
+            width={820}
+            height={200}
+            unoptimized
+            className="block h-[34px] w-auto dark:hidden sm:h-10"
+          />
+          <Image
+            src={siteConfig.logo.darkBg}
+            alt=""
+            aria-hidden="true"
+            width={820}
+            height={200}
+            unoptimized
+            className="hidden h-[34px] w-auto dark:block sm:h-10"
+          />
         </Link>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">

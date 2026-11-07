@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone, Truck } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { footerLegalNavigation, navigation } from "@/data/navigation";
 import { getLocationHref, locations } from "@/data/locations";
 import { services } from "@/data/services";
@@ -19,12 +20,14 @@ export function Footer() {
             href="/"
             className="inline-flex items-center gap-3 rounded-sm text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-bright"
           >
-            <span className="flex size-10 items-center justify-center rounded-xl bg-accent-bright text-[#172033]">
-              <Truck aria-hidden="true" size={22} />
-            </span>
-            <span className="font-extrabold tracking-tight">
-              {siteConfig.companyName}
-            </span>
+            <Image
+              src={siteConfig.logo.darkBg}
+              alt={siteConfig.companyName}
+              width={820}
+              height={200}
+              unoptimized
+              className="h-10 w-auto"
+            />
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-6 text-slate-400">
             {siteConfig.tagline}. Contact us to confirm shipment requirements

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer";
@@ -40,8 +41,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
@@ -50,20 +52,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <RouteProgress />
         <ScrollProgress />
         <div aria-hidden="true" className="first-visit-loader">
-          <svg
+          <Image
+            src={siteConfig.logo.monogram}
+            alt=""
             aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="size-5 shrink-0 text-accent"
-          >
-            <path
-              d="M3 7h11v10H3zM14 10h4l3 3v4h-7zM7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm11 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.8"
-            />
-          </svg>
+            width={64}
+            height={64}
+            unoptimized
+            className="size-16 shrink-0"
+          />
           <span className="first-visit-loader-content">
             <span className="first-visit-loader-name">
               {siteConfig.companyName}

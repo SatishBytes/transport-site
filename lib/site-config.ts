@@ -39,6 +39,12 @@ export const siteConfig = {
   experienceYears,
   experienceLabel: `${experienceYears}+ Years`,
   productionDomain: getProductionDomain(configuredSiteUrl),
+  logo: {
+    lightBg: "/logo-2-horizontal-light-bg.svg",
+    darkBg: "/logo-2-horizontal-dark-bg.svg",
+    badge: "/logo-1-badge.svg",
+    monogram: "/logo-3-monogram.svg",
+  },
   phone: "7021028726",
   whatsappNumber: "917021028726",
   email: "bachanroadcarriers7289@gmail.com",

@@ -112,6 +112,7 @@ const organizationSchema = {
   name: siteConfig.companyName,
   description: siteConfig.tagline,
   url: siteConfig.productionDomain,
+  logo: new URL(siteConfig.logo.badge, siteConfig.productionDomain).toString(),
 };
 const organizationStructuredData = {
   "@context": "https://schema.org",
